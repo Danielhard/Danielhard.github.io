@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue 源码分析 | Danielhard的前端笔记</title>
+    <meta name="description" content="step by step for a Full stack">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a02f6941.css" as="style"><link rel="preload" href="/assets/js/app.5c6037cb.js" as="script"><link rel="preload" href="/assets/js/2.082e12d9.js" as="script"><link rel="preload" href="/assets/js/25.fbb4af51.js" as="script"><link rel="prefetch" href="/assets/js/10.9deb2a08.js"><link rel="prefetch" href="/assets/js/11.842648f5.js"><link rel="prefetch" href="/assets/js/12.d3d6d6a2.js"><link rel="prefetch" href="/assets/js/13.f678d7f6.js"><link rel="prefetch" href="/assets/js/14.fcbf7455.js"><link rel="prefetch" href="/assets/js/15.7cf0b9e8.js"><link rel="prefetch" href="/assets/js/16.d23d7877.js"><link rel="prefetch" href="/assets/js/17.71f474e7.js"><link rel="prefetch" href="/assets/js/18.b524aa71.js"><link rel="prefetch" href="/assets/js/19.448a8713.js"><link rel="prefetch" href="/assets/js/20.9d3518c1.js"><link rel="prefetch" href="/assets/js/21.1c2d03ec.js"><link rel="prefetch" href="/assets/js/22.5c5233a2.js"><link rel="prefetch" href="/assets/js/23.80f19ee8.js"><link rel="prefetch" href="/assets/js/24.b87cd00f.js"><link rel="prefetch" href="/assets/js/26.7781b184.js"><link rel="prefetch" href="/assets/js/27.4065852b.js"><link rel="prefetch" href="/assets/js/28.2c772aeb.js"><link rel="prefetch" href="/assets/js/29.aeb8adbd.js"><link rel="prefetch" href="/assets/js/3.4f8d9a06.js"><link rel="prefetch" href="/assets/js/30.f4a63fbc.js"><link rel="prefetch" href="/assets/js/31.7401067b.js"><link rel="prefetch" href="/assets/js/32.dacd01a8.js"><link rel="prefetch" href="/assets/js/33.b4caf845.js"><link rel="prefetch" href="/assets/js/34.1fecdd8f.js"><link rel="prefetch" href="/assets/js/35.3256e4f8.js"><link rel="prefetch" href="/assets/js/36.b6a81b1a.js"><link rel="prefetch" href="/assets/js/37.e8212bcc.js"><link rel="prefetch" href="/assets/js/38.13adce45.js"><link rel="prefetch" href="/assets/js/39.090a1cfa.js"><link rel="prefetch" href="/assets/js/4.167f4d3b.js"><link rel="prefetch" href="/assets/js/40.13501eeb.js"><link rel="prefetch" href="/assets/js/41.c66148b8.js"><link rel="prefetch" href="/assets/js/42.45d8454b.js"><link rel="prefetch" href="/assets/js/43.f4ce8f7e.js"><link rel="prefetch" href="/assets/js/44.c14e2024.js"><link rel="prefetch" href="/assets/js/45.bc1af6e4.js"><link rel="prefetch" href="/assets/js/46.e605b212.js"><link rel="prefetch" href="/assets/js/47.3d074211.js"><link rel="prefetch" href="/assets/js/48.08e28418.js"><link rel="prefetch" href="/assets/js/49.4b565f02.js"><link rel="prefetch" href="/assets/js/5.db9199f1.js"><link rel="prefetch" href="/assets/js/50.255f038b.js"><link rel="prefetch" href="/assets/js/51.3edef65b.js"><link rel="prefetch" href="/assets/js/52.476f761c.js"><link rel="prefetch" href="/assets/js/53.8b55355b.js"><link rel="prefetch" href="/assets/js/54.8411ba2f.js"><link rel="prefetch" href="/assets/js/55.7764be3c.js"><link rel="prefetch" href="/assets/js/56.36aa97c2.js"><link rel="prefetch" href="/assets/js/57.6d39658a.js"><link rel="prefetch" href="/assets/js/6.768f9de4.js"><link rel="prefetch" href="/assets/js/7.20a18e96.js"><link rel="prefetch" href="/assets/js/8.f9f6b6a6.js"><link rel="prefetch" href="/assets/js/9.44d7f83b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a02f6941.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Danielhard的前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>QA</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>MVVM相关</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/FE/mvvm/vue/vue原理.html" class="active sidebar-link">Vue 源码分析</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/FE/mvvm/vue/vue原理.html#vue-源码分析" class="sidebar-link">Vue 源码分析</a></li><li class="sidebar-sub-header"><a href="/FE/mvvm/vue/vue原理.html#_3-0" class="sidebar-link">3.0</a></li></ul></li><li><a href="/FE/mvvm/domDiff.html" class="sidebar-link">diff核心思想</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端工程化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>源码解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>php</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="vue-源码分析"><a href="#vue-源码分析" aria-hidden="true" class="header-anchor">#</a> Vue 源码分析</h2> <h3 id="目录结构"><a href="#目录结构" aria-hidden="true" class="header-anchor">#</a> 目录结构</h3> <pre><code>```
+  --src 
+    -- compiler
+    -- core 
+    -- entries
+    -- platforms
+    -- server
+    -- sfc 
+    -- shared
+
+```
+</code></pre> <ol><li>/copmplier 目录是编译模板</li> <li>/core目录是vue.js 的核心</li> <li>/entries目录是生产打包的入口</li> <li>/platforms目录是针对核心模块的'平台'模块</li> <li>platforms 目录下暂时只有web目录 （在最新的开发目录下边已经有weex 目录）。web目录下有对应的
+/compiler 、 /runtime 、/server 、 /util目录</li> <li>/server 目录是处理服务端渲染</li> <li>/sfc目录处理但文件 .vue</li> <li>/shared 目录提供全局用到的工具函数。</li></ol> <ul><li>结论： Vue整体组成由core(核心)+对应的'平台'补充代码构成(独立构建和运行时构建只是platforms下web平台的两种选择),</li></ul> <div class="language- extra-class"><pre class="language-text"><code>  Vue  -- core 
+          -- components
+          -- global-api
+          -- instance
+          -- observer
+          -- util
+          -- vdom
+       -- platforms
+
+</code></pre></div><ul><li><p>Vue.js的目标是通过尽可能简单的API实现响应的数据绑定和组合的视图组件
+1.components 模板编译的代码
+2.global-api 最上层的文件接口
+3.instance生命周期-&gt; init.js
+4.observer 数据收集与订阅
+5.util常用工具方法类
+6.vdom虚拟dom</p></li> <li><p>双向绑定原理
+模板渲染解析时watcher会对应绑定指令(一对一).此时会通过调用订阅者watcher初始化(watcher中get()方法)去触发对应属性在发布者observer里(object.defineProperty)的getter,observer会判断是不是通过watcher初始化调用的（Dep.target,实例化之后会清空），只有是才会通过dep类依赖收集，observer通过depend通知Dep类收集(addDep方法，在watcher类中，会传入当前Dep实例调用自身)当前该订阅者(watcher)中的触发更新的方法，同时第一次初始化watcher.update()初始化视图。此后每次的数据更新都会通过observer中的setter去触发dep类中的回调update执行收集依赖的所有方法更新订阅者中的状态同时更新视图。observer在处理对象和数组的时候，如果是数组，并且调用的方法会改变数组长度，则会利用重写原型链方法,执行原始方式，拦截新增，遍历递归代理新增数据，然后手动触发一次setter做的事情(因为调用数组原生APi可能多次触发getter setter 且索引不会变)，如果是对象则
+通过对象的getter获取值和setter更新值.</p></li> <li><p>observer观察者</p> <div class="language- extra-class"><pre class="language-text"><code>   function Dep(){ // 主题对象
+      this.subs = []; //订阅者列表
+   }
+   // 主体对象通知订阅者
+   Dep.prototype.notify = function(){
+     // 遍历所有的订阅者，执行订阅者提供的更新方法
+     this.subs.forEach(function(sub){
+       sub.update();
+     })
+   }
+
+   function Sub(x){ // 订阅者
+     this.x = x 
+   }
+   //订阅者更新 
+   Sub.prototype.update = function(){
+     this.x = this.x + 1
+   }
+   
+
+   var pub ={
+     publish:function(){
+       dep.notify();
+     }
+   };
+   var dep = new Dep(); //主题对象实例
+   dep.subs.push(new Sub(1),new Sub(2));
+   // 新增2个订阅者
+   pub.publish();//发布者发布更新
+</code></pre></div></li> <li><p>Dep</p></li> <li><p>watcher
+watcher中的get回调会将当前实例vm对应key的值赋值给当前watcher类的value ，然后在update中赋值给当前节点(node)对应的(type)属性</p> <div class="language- extra-class"><pre class="language-text"><code>    [
+      watcher1,// {{text}}   (if setter)=&gt;(else init)update-&gt;get-&gt;getter
+      watcher2 // {{v-model}}   update
+    ]
+</code></pre></div></li></ul> <p>##从挂载到渲染</p> <p>1.实例化
+new Vue({<br>
+el:'app',
+data:{}
+})</p> <p>2.传入的data挂载到vue实例身上
+3.observe  -- definedProperty 数据的响应式</p> <ol><li>创建一个dep ,收集对应的watcher</li> <li>对于数据构建响应 同时做了get 和 set处理</li> <li>defineProperty的get，Dep.target =&gt; Dep.addSub =&gt;收集依赖</li> <li>定义set  =&gt; dep.notify<br>
+4.渲染 Complie (返回dom节点插到页面上)</li> <li>传入node节点 vm</li> <li>nodeToFragment =&gt; document.createDocumentFragment 创建文档片段
+它在内存中，所以不会造成太大的性能问题</li> <li>while(child = node.firstChild) =&gt; complieElement =&gt; 添加到文档片段里面</li> <li>compileElement =&gt; 判断节点类型,修正模板  (new Watcher()); 分不同场景获取的值。文本节点的nodevalue 还有指令获取
+1 . 文本=&gt; name(test) -&gt; 获取到我们在模板里面使用的data里面的key
+2 . 一个指令对应声明一个watcher</li> <li>watcher实例化 , Dep.target = this =&gt; update -&gt;(observer) get -&gt;dep.addSub()</li> <li>get到值之后，nodeValue = value  同时进行dom-diff get阶段就是打patch的时候。</li> <li>batcher (vue的调度 eventLoop)</li></ol> <p>##API</p> <ul><li>keep-alive
+lru缓存算法，保存vdom 使用后来的，清空先来的</li> <li>use
+Vue.use() 传入function 或者对象，判断是否存在 有直接返回。没有判断类型执行</li></ul> <h2 id="_3-0"><a href="#_3-0" aria-hidden="true" class="header-anchor">#</a> 3.0</h2> <ul><li>Proxy(一层)</li> <li>compiler-core与平台无关的编辑器（AST）</li> <li>compiler-dom专门针对浏览器写的编辑器</li> <li>reactivity 数据相应系统，单独的系统，可以配合任何使用</li> <li>runtime-core 与平台无关的运行时，实现虚拟dom渲染器（虚拟 dom与此层分离 ）、vue组件，vue Api 、可以利用这一层
+具体实现某个平台的runtime，自定义渲染器</li> <li>runtime-dom: 专门针对浏览器的运行时，dom api,dom 事件，dom 属性</li> <li>runtime-test:辅助dom渲染测试工具</li> <li>server-renderer : ssr</li></ul> <blockquote><p>3.0性能提升</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>  /**
+  *  不需要深层遍历，proxy直接调用取值
+  *  与2.0不同，不需要深层递归遍历一级一级获取值
+  *
+  *
+  **/
+
+   function isObject(res){
+      ?isReadOnly
+      ?lazy
+      readOnly(res)?
+      reactivity(res)
+      :res
+
+   }
+  
+</code></pre></div><p>reactive?
+//依赖收集  取到effectStack[lastIndex] 放进targetMap完成依赖的收集
+targetMap{
+{a:1} // 原始数据，作为键值的key
+:
+{
+a:{
+reactiveEffect(()=&gt;{
+run(effect,fn,args)
+})
+}
+}
+}</p> <p>effect 传入的函数，默认执行一次，函数里面发生修改的时候，再次执行对应的effect 这一层做的是数据变更之后的渲染-&gt;接入渲染操作</p> <div class="language- extra-class"><pre class="language-text"><code>  effect(fn)-&gt;createReactiveEffect(fn)=&gt;返回一个函数 =&gt;1effect()// 执行 ,
+  // 收集依赖第一次执行 
+  1effect = createReactiveEffect??  里面返回 ⬇️ //reactiveEffect里面返回一个run的闭包，执行effect里的fn顺便添加依赖。这里的effect都是每个函数体内自己定义的，createReactiveEffect 执行和reactiveEffect函数 都被声明effect代替
+  // 依赖 
+  effect = reactiveEffect(()=&gt;{
+    return run(effect,fn,args)
+  })
+ // ---
+  run === effectStack.includes(effect)?  effectStack.push(effect)  // 收集依赖推进栈
+  =&gt; fn(...args) -&gt;触发 get() -&gt;track -&gt;effectStack[lastIndex]  // 执行了fn之后，先推入依赖再触发get，所以effectStack最后一个就是当前入栈的依赖
+  -&gt;track啥呢  拿依赖 ：  effect=reactiveEffect(()=&gt;{
+    return run(effect,fn,args)
+  })
+
+
+ setter triger   targetMap-&gt;target-&gt;deps -&gt; 遍历（effect）  =  new Set()=&gt; computedRunners.add(effect)  effect.add(effect)
+ 添加完成之后遍历执行里边的run(effect)
+   effect = reactiveEffect(()=&gt;{
+    return run(effect,fn,args)
+  })
+    run === effectStack.includes(effect)? 
+  =&gt; fn(...args)  //更新视图，依赖已经收集不会重新收集
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/FE/Http/http_2.html" class="prev">HTTP 2/3 &amp; HTTPS</a></span> <span class="next"><a href="/FE/mvvm/domDiff.html">diff核心思想</a>→
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c6037cb.js" defer></script><script src="/assets/js/2.082e12d9.js" defer></script><script src="/assets/js/25.fbb4af51.js" defer></script>
+  </body>
+</html>

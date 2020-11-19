@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack 基本构成模块及其内部原理 | Danielhard的前端笔记</title>
+    <meta name="description" content="step by step for a Full stack">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a02f6941.css" as="style"><link rel="preload" href="/assets/js/app.5c6037cb.js" as="script"><link rel="preload" href="/assets/js/2.082e12d9.js" as="script"><link rel="preload" href="/assets/js/55.7764be3c.js" as="script"><link rel="prefetch" href="/assets/js/10.9deb2a08.js"><link rel="prefetch" href="/assets/js/11.842648f5.js"><link rel="prefetch" href="/assets/js/12.d3d6d6a2.js"><link rel="prefetch" href="/assets/js/13.f678d7f6.js"><link rel="prefetch" href="/assets/js/14.fcbf7455.js"><link rel="prefetch" href="/assets/js/15.7cf0b9e8.js"><link rel="prefetch" href="/assets/js/16.d23d7877.js"><link rel="prefetch" href="/assets/js/17.71f474e7.js"><link rel="prefetch" href="/assets/js/18.b524aa71.js"><link rel="prefetch" href="/assets/js/19.448a8713.js"><link rel="prefetch" href="/assets/js/20.9d3518c1.js"><link rel="prefetch" href="/assets/js/21.1c2d03ec.js"><link rel="prefetch" href="/assets/js/22.5c5233a2.js"><link rel="prefetch" href="/assets/js/23.80f19ee8.js"><link rel="prefetch" href="/assets/js/24.b87cd00f.js"><link rel="prefetch" href="/assets/js/25.fbb4af51.js"><link rel="prefetch" href="/assets/js/26.7781b184.js"><link rel="prefetch" href="/assets/js/27.4065852b.js"><link rel="prefetch" href="/assets/js/28.2c772aeb.js"><link rel="prefetch" href="/assets/js/29.aeb8adbd.js"><link rel="prefetch" href="/assets/js/3.4f8d9a06.js"><link rel="prefetch" href="/assets/js/30.f4a63fbc.js"><link rel="prefetch" href="/assets/js/31.7401067b.js"><link rel="prefetch" href="/assets/js/32.dacd01a8.js"><link rel="prefetch" href="/assets/js/33.b4caf845.js"><link rel="prefetch" href="/assets/js/34.1fecdd8f.js"><link rel="prefetch" href="/assets/js/35.3256e4f8.js"><link rel="prefetch" href="/assets/js/36.b6a81b1a.js"><link rel="prefetch" href="/assets/js/37.e8212bcc.js"><link rel="prefetch" href="/assets/js/38.13adce45.js"><link rel="prefetch" href="/assets/js/39.090a1cfa.js"><link rel="prefetch" href="/assets/js/4.167f4d3b.js"><link rel="prefetch" href="/assets/js/40.13501eeb.js"><link rel="prefetch" href="/assets/js/41.c66148b8.js"><link rel="prefetch" href="/assets/js/42.45d8454b.js"><link rel="prefetch" href="/assets/js/43.f4ce8f7e.js"><link rel="prefetch" href="/assets/js/44.c14e2024.js"><link rel="prefetch" href="/assets/js/45.bc1af6e4.js"><link rel="prefetch" href="/assets/js/46.e605b212.js"><link rel="prefetch" href="/assets/js/47.3d074211.js"><link rel="prefetch" href="/assets/js/48.08e28418.js"><link rel="prefetch" href="/assets/js/49.4b565f02.js"><link rel="prefetch" href="/assets/js/5.db9199f1.js"><link rel="prefetch" href="/assets/js/50.255f038b.js"><link rel="prefetch" href="/assets/js/51.3edef65b.js"><link rel="prefetch" href="/assets/js/52.476f761c.js"><link rel="prefetch" href="/assets/js/53.8b55355b.js"><link rel="prefetch" href="/assets/js/54.8411ba2f.js"><link rel="prefetch" href="/assets/js/56.36aa97c2.js"><link rel="prefetch" href="/assets/js/57.6d39658a.js"><link rel="prefetch" href="/assets/js/6.768f9de4.js"><link rel="prefetch" href="/assets/js/7.20a18e96.js"><link rel="prefetch" href="/assets/js/8.f9f6b6a6.js"><link rel="prefetch" href="/assets/js/9.44d7f83b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a02f6941.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Danielhard的前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>QA</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MVVM相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>前端工程化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/FE/webpack/webpack基础使用.html" class="sidebar-link">webpack 模块化打包工具 一切皆模块</a></li><li><a href="/FE/webpack/webpack构建及流程.html" class="sidebar-link">webpack</a></li><li><a href="/FE/webpack/webpack项目优化及构建.html" class="sidebar-link">细活</a></li><li><a href="/FE/webpack/webpack常见问题.html" class="sidebar-link">常见的问题</a></li><li><a href="/FE/webpack/原理.html" class="active sidebar-link">webpack 基本构成模块及其内部原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/FE/webpack/原理.html#webpack-基本构成模块及其内部原理" class="sidebar-link">webpack 基本构成模块及其内部原理</a></li><li class="sidebar-sub-header"><a href="/FE/webpack/原理.html#打包生成的-bundle-里面" class="sidebar-link">打包生成的 bundle 里面</a></li><li class="sidebar-sub-header"><a href="/FE/webpack/原理.html#loader-ast-抽象语法树" class="sidebar-link">loader AST 抽象语法树</a></li><li class="sidebar-sub-header"><a href="/FE/webpack/原理.html#plugins的机制" class="sidebar-link">plugins的机制</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>源码解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>php</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="webpack-基本构成模块及其内部原理"><a href="#webpack-基本构成模块及其内部原理" aria-hidden="true" class="header-anchor">#</a> webpack 基本构成模块及其内部原理</h2> <h3 id="loader"><a href="#loader" aria-hidden="true" class="header-anchor">#</a> loader</h3> <ul><li>通过 loader-utils 插件，获配置环境中的参数</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+ const loaderUtils = require(&quot;loader-utils&quot;)
+ module.exports  = function(content){
+     const options = loaderUtils.getOptions(this);
+     console.log(this.data)//前置钩子
+     return ...
+ }
+</code></pre></div><ul><li>前置钩子</li></ul> <div class="language- extra-class"><pre class="language-text"><code>  module.exports.pitch = function(r,request,data){
+    data.value = '前置钩子'
+  }
+</code></pre></div><h2 id="打包生成的-bundle-里面"><a href="#打包生成的-bundle-里面" aria-hidden="true" class="header-anchor">#</a> 打包生成的 bundle 里面</h2> <ul><li>打包原理</li></ul> <div class="language- extra-class"><pre class="language-text"><code> 默认生成一个闭包，传入chunks对应的依赖
+
+(
+    function(modules){
+        var installModules = {}; // 缓存
+        function _webpack_require(moduleId){
+            if(installModules[moduleId]){
+                 return installModules[moduleId].exports //走缓存
+            }
+
+            var module = installedModules[moduleId] = {
+                export:{}
+            }
+            modules[moduleId].call(module.exports,module,module.exports,_webpack_require_) // 取闭包参数，执行方法。绑定参数
+            return module.exports // 导出的暴露出去
+        }
+    }
+    return _webpack_require('./xx/index.js')
+)({
+    &quot;./xx/index.js&quot;:
+    (function(module,module.exports,_webpack_require_ ){
+        eval('...')
+    })
+})
+</code></pre></div><ul><li>如果采用了同步加载 import ,require....，</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+(
+    function(modules){
+        var installModules = {}; // 缓存
+        function _webpack_require(moduleId){
+            if(installModules[moduleId]){  //有缓存
+                 return installModules[moduleId].exports //走缓存
+            }
+
+            var module = installedModules[moduleId] = {
+                export:{}
+            }
+            modules[moduleId].call(module.exports,module,module.exports,_webpack_require_) // 取闭包参数，执行方法。绑定参数
+            return module.exports // 导出的暴露出去
+        }
+    }
+    return _webpack_require('./xx/index.js')
+)({
+
+    // 同步，递归展平
+    &quot;./xx/index.js&quot;:
+    (function(module,module.exports,_webpack_require_ ){
+       /*harmony import */
+       var _sync_WEBPACK_IMPORTED_MODULE_0__ = _webpack_require_(/*! sync*/ \'./xx/sync.js')
+       console.log(_sync_WEBPACK_IMPORT_MODULE_)_['default'] //
+       //异步的(import commonJS)会展平，用自己的定义的方式引入
+    }),
+     &quot;./xx/sync.js&quot;:
+    (function(module,module.exports,_webpack_require_ ){
+        const data = 'sync'
+        /* harmony default export */
+        _webpack_exports_['default'] = (data) // 会用webpack自定义的模块化机制挂到default 属性上
+    })
+})
+</code></pre></div><ul><li>异步打包</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// index.js
+import ('./async.js').then(res=&gt;{
+    console.log(res)
+})
+</code></pre></div><p><strong>异步引入会生成一个新的 chunk</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// 打包后的[chunk].js
+
+//第八步:执行window['webpackJsonp'].push()方法，执行push方法就是执行webpackJsonpCallback方法
+(window['webpackJsonp'] = []).push([[0],{ // 推一个二维数组，第一个是chunkId ,第二个是chunk和依赖映射关系
+  &quot;./xx/async.js&quot;:
+  (function(module,_webpack_exports_,_webpack_require){
+      const data = 'async'
+      /* harmony default*/
+      _webpack_exports_['default'] = (data)
+  })
+}])
+
+
+// 打包后的输出主文件
+
+(
+    function(modules){
+        // 第一步：定义变量和函数
+        
+        //[函数]异步回调函数
+        //[作用]加载异步文件中的chunk和module
+        // 这里的chunk是异步文件中的异步文件
+        // 这里的module代表异步文件中的主函数和同步文件
+
+        function webpackJsonpCallback(data){
+           // 第九步: 执行异步回调函数
+           // data结构
+           // [
+           //    [0],
+           //    {
+           //     './src/sync.js':function(){}
+           //    }
+           // ]
+          
+           // chunkIds拿到异步文件列表
+           // moreModules拿到同步和主函数文件
+            var chunkIds = data[0]
+            var moreModules = data[1];
+            var moduleId,chunkId,i = 0,resolves = [];
+            // 此时chunkIds = [0],chunkIds.length为1
+            for(;i&lt;chunkIds.length;i++){
+                //chunkUd = 0
+                chunkId = chunkIds[i]
+
+                // 下面这个判断语句是判断installedChunks这个对象里面有没有chunkId,并且要有值
+                // installedChunks = {
+                //  0:[resolve,reject]
+                //  main:0   
+                // }
+                if(Object.prototype.hasOwnProperty.call(installedChunks,chunkId) &amp;&amp; installedChunks){
+                   // installedChunks[0][0] 就是resolve函数
+                    resolves.push(installedChunks[chunkId][0]);
+                }
+                // 把此异步的属性值赋值为0,防止重复加载
+                installedChunks[chunkId] = 0;
+            }
+
+            // moreModules 是主文件和同步文件对象
+            // moreModules = {
+            //  './src/sync.js':function(){}   
+            // }
+            for(moduleId in moreModules){
+                if(Object.prototype.hasOwnProperty.call(moreModules,moduleId)){
+                    //此时的moduleId 为 './src/sync.js'
+                    //执行前 modules的值为:
+                    //modules = {
+                    // './src/index.js':function(){}    
+                    //}
+                    // 执行后,modules的值为:
+                    //  modules = {
+                    //    './src/index.js':function(){},
+                    //    '.src/sync.js':function(){}
+                    //    }
+
+
+
+                    // 把异步函数的文件挂载到modules上面
+                    modules[moduleId] = moreModules[moduleId];  // 执行一个就挂到modules上,
+                }
+            }
+            if(parentJsonpFunction)parentJsonpFunction(data);
+
+            // 第十步，resolves.shift()拿出resolve待执行函数，用()来执行,这里才执行了resolve
+            while(resolves.length){
+                resolves.shift()();
+            }
+        }
+        var installModules = {}; // 缓存
+
+        // 装载chunk(加载异步文件的一个对象，比如: 0:[resolve,reject,promise])
+        var installedChunks = {
+            'main':0
+        }
+
+        //[函数]返回文件路径
+        //[作用]通过chunk拼接src路径 
+        // script path function
+        function jsonpScriptSrc(chunkId){
+            return _webpack_require_.p + '' +({}[chunkId] || chunkId) + '.js'
+        }
+
+        //[函数]require函数
+        //[作用]这个是webpack自己定义的同步文件加载函数
+        function _webpack_require(moduleId){
+            // 第三步:执行主文件，此时的moduleId = './src/index.js'
+
+            //检查有没有缓存
+            //缓存模块installModules={}
+            if(installModules[moduleId]){
+                // 加载过，直接返回exports函数
+                 return installModules[moduleId].exports //走缓存
+            }
+            // 创建一个module,并且在installedModules上挂一个缓存，如果下次再执行，就直接走到上边的if语句里
+            var module = installedModules[moduleId] = {
+                export:{}
+            }
+            // 这个modules是最外层的modules
+            //webpack会把所有的文件都挂载到modules
+            //call有四个参数
+            //第一个是绑定this
+            //第二个是把上面创建的模块传进去
+            //第三个参数是module.exports,要导出的东西挂载在这个对象上
+            //第四个参数是_webpack_require_
+
+            modules[moduleId].call(module.exports,module,module.exports,_webpack_require_) // 取闭包参数，执行方法。绑定参数
+            //返回exports
+            return module.exports // 导出的暴露出去
+        }
+        
+        // [函数]异步文件加载  
+        // [作用]这个是重点
+        _webpack_require.e = function requireEnsure(chunkId){
+          // 第六步: 进入异步加载文件函数,此时chunkId = 0;
+          // 定一个存放promise的 集合  
+          var promises = [];
+
+          //用JSONP的模式加载(利用script标签记载)
+          //定义一个变量installedChunkData,然后看chunk装载函数有没有装载过chunkId = 0 的文件，如果没有就装载
+          var installedChunkData = installedChunks[chunkId]; // 拿到存放主文件的chunkId
+          //0代表安装过
+          if(installedChunkData !== 0){
+
+              // 如果installedChunkdata不为0,并且有值,就在promise变量里面放一个promise对象,在下面用Promise.all执行
+              if(installedChunkData){
+                  //第一次执行过后,installedChunkData = [resolve,reject,promise] ,第二个值是promise对象
+                  promises.push(installedChunkData[2]) //  检查缓存
+              }else{
+                  // 这里创建了一个promise对象，这里没有立即执行resolve,而是把值赋给全局变量installedChunksData 和installChunks
+                  //installedChunkData这个是上面创建的新变量，第一次进来是undefined,现在的installedChunkData = [resolve,reject]
+                  // installedChunks这个是用来装载异步文件的，此时的值
+                  // installedChunks = {
+                  //  0:[resolve,reject]
+                  //    main : 0  
+                  //  }
+                
+
+                  var promise = new Promise(function(resolve,reject){
+                      installedChunkData = installedChunks[chunkId] = [resolve,reject];
+                  })
+
+                  // push一个promise对象
+                  promises.push(installedChunkData[2] = promise);
+                  //异步通过script标签引入
+                  var script = document.createElement('script');
+                  var onScriptComplete;
+                  script.charset = 'utf-8';
+                  script.timeout = 120;
+                  if(_webpack_require_.nc){
+                      script.setAttribute('nonce',_webpack_require_.nc);
+                  }
+                  script.src = jsonpScriptSrc(chunkId);
+                  var error = new Error();
+                  onScriptComplete = function(event){
+                      script.onerror = script.onload = null;
+                      clearTimeout(timeout);
+                      var chunk = installedChunks[chunkId];
+                      if(chunk!==0){
+                          if(chunk){
+                              var erorrType = event&amp;&amp;(event.type ==='load'?'missing':event.type);
+                              var realSrc = event &amp;&amp; event.target&amp;&amp;event.target.src;
+                              error.message = 'loading chunk ' + chunkId + 'failed.\n(' + errorType + ':
+                              ...
+                              ...///执行错误安全类的
+                          }
+                      }
+                  }
+                  var timeout = setTimeout(function(){
+                      onScriptComplete({type:'timeout',target:script});
+                  },120000);
+                  script.onerror = script.onload = onScriptComplete;
+
+                  //第七步:加载这个文件会执行0.js
+                  document.head.appendChild(script) // 插入标签
+              }
+          }
+
+          // 第七点五步：先会同步执行返回
+           return Promise.all(promises) // 返回promiseAll ,用then接受
+        }
+        // 文件名前缀，在上面返回路径的函数中用到
+        _webpack_require_.p = ''
+        // 用jsonpArray代替变量window['webpackJsonp'];
+        var jsonpArray = window['webpackJsonp] = window['webpackJsonp'] || []; //简单的赋值
+        var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);  // 数组push绑定到oldJsonpFunction  oldJsonpFunction(1)-&gt;jsonpArray.push(1)
+        jsonpArray.push = webpackJsonpCallback; // push执行调用webpackJsonpCallback(上面定义的异步回调函数); push不是数组push
+        jsonpArray = jsonpArray.slice();
+        for(var i = 0;i&lt;jsonpArray.length;i++) webpackJsonpCallback(jsonpArray[i]); // 调用传参  window['webpackJsonp'][0]
+        var parentJsonpFunction = oldJsonpFunction;
+        return _webpack_require_(_webpack_require_.s = './xx/index.js')
+    }
+
+    // 第二步:执行入口文件'./src/index.js'
+    return _webpack_require('./xx/index.js')
+)({
+    &quot;./xx/index.js&quot;:
+    (function(module,module.exports,_webpack_require_ ){
+        // 第四步： 执行eval函数
+      eval(
+       _webpack_require_
+       .e(/* import() */0)  // 第五步，执行 _webpack_require_.e(0)
+       .then(_webpack_require_.bind(null,/*! ./async.js*/ \&quot;./XX/async.js\&quot;)) // 第十一步，执行这个回调函数  _webpack_require_()
+       .then(res=&gt;{ 
+           \n\n
+           //第十二步： 异步加载完执行主函数剩下的逻辑输出
+           console.log(res)
+       })
+      )
+    })
+})
+</code></pre></div><h2 id="loader-ast-抽象语法树"><a href="#loader-ast-抽象语法树" aria-hidden="true" class="header-anchor">#</a> loader AST 抽象语法树</h2> <div class="language- extra-class"><pre class="language-text"><code>//简单抽象语法树实现
+var UglifyJS =  require(&quot;uglify-js&quot;);
+var code = &quot;var a = 1;&quot;;
+var toplevel = UglifyJS.parse(Code);
+var transformer = new UglifyJS.TreeTransformer(function(node){
+    if(node instanceof UglifyJS.AST_Number){
+    node.value = '0x' + Number(node.value).toSting(16);
+    return node; //返回一个新的叶子节点替换原来的叶子结点
+    }
+});
+toplevel.tansform(transformer);//遍历AST树
+var ncode = toplevel.print_to_string();//从AST还原成字符串
+console.log(ncode); // var a = 0x1
+
+</code></pre></div><p>那么回到之前的 loader 实现原理部分</p> <div class="language- extra-class"><pre class="language-text"><code> const acorn = require('acorn');
+ const walk = require('acorn-walk');
+ const MagicString = require('macgic-string');
+ const loaderUtils = require(&quot;loader-utils&quot;)
+ module.exports = function(content){
+     const options = loaderUtils.getOptions(this);
+     const ast = acorn.parse(content); //转成ast树
+     const code = new MagicString(content); //魔法字符串
+     //做一个var =&gt; const
+     walk.simple(ast,{
+         VariableDeclaration(node){
+           const {start} = node
+           code.overwrite(start,start + 3,'const');
+         }
+     })
+     console.log(this.data)//前置钩子
+     return ...
+ }
+
+</code></pre></div><p>编写自己的 loader use:[XXX,XXX]是以传入顺序的倒叙执行,最后的 loader 最早调用。传入原始文件，第一个 loader 最后调用，
+期待接受 js 和 sourceMap(可选)传入上一个执行返回结果。loader 的异步处理。在 loader 结束使用 this.async()标识该 loader 是异步
+处理的，使用 this.callback 返回 loader 处理结果。</p> <p><strong>(v8-compiler-cache 是个好东西[doge])</strong></p> <h2 id="plugins的机制"><a href="#plugins的机制" aria-hidden="true" class="header-anchor">#</a> plugins的机制</h2> <blockquote><p>tapable事件流机制</p></blockquote> <p><strong>一般编写自定义plugin的格式</strong></p> <div class="language- extra-class"><pre class="language-text"><code>const pluginName = 'ConsoleLogOnBuildWebpackPlugin';
+
+class ConsoleLogOnBuildWebpackPlugin {
+    apply(compiler) {
+        compiler.hooks.run.tap(pluginName, compilation =&gt; {
+            console.log('The webpack build process is starting!!!');
+        });
+    }
+}
+
+module.exports = ConsoleLogOnBuildWebpackPlugin;
+</code></pre></div><p><strong>tapable有一套自己的东西</strong></p> <div class="language- extra-class"><pre class="language-text"><code>const {
+    SyncHook,
+    SyncBailHook,
+    SyncLoopHook,
+    SyncWaterfallHook,
+    AsyncSeriesHook,
+    AsyncParallelHook,
+    AsyncSeriesBailHook,
+    AsyncParallelBailHook,
+    AsyncSeriesWaterfallHook
+} = require('tapable')
+
+// 1.SyncHook 同步串行钩子 不关心返回值
+// 2.SyncBailHook 同步串行钩子 如果返回值不为null 则跳过之后的函数
+// 3.SyncLoopHook 同步循环，如果返回值为true 则继续执行
+// 4.SyncWaterfallHook同步串行，上一个函数返回值会传给下一个监听函数
+// 5.AsyncSeriesHook 异步并发 不关心返回值
+// 6.AsyncParallelHook 异步并发 不关心返回值
+// 7.AsyncSeriesBailHook 异步串行 返回值不为null时 执行异步里的回调函数
+// 8.AsyncParallelBailHook, 异步并发 返回值不为null 跳过之后的函数
+// 9.AsyncSeriesWaterfallHook 异步串行
+
+// 发布者
+let run = new SyncHook(['complation', 'complation2'])
+
+// 订阅者
+run.tap(&quot;1&quot;, function (complation, complation2){
+    console.log(&quot;1:&quot;, complation, complation2)
+})
+
+run.tap(&quot;2&quot;, function (complation) {
+    console.log(&quot;2:&quot;, complation)
+})
+
+run.tap(&quot;3&quot;, function (complation) {
+    console.log(&quot;3:&quot;, complation)
+})
+
+run.call(&quot;webpack&quot;, &quot;other&quot;)
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/FE/webpack/webpack常见问题.html" class="prev">常见的问题</a></span> <span class="next"><a href="/FE/optimization/性能优化一.html">性能优化篇(一)</a>→
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c6037cb.js" defer></script><script src="/assets/js/2.082e12d9.js" defer></script><script src="/assets/js/55.7764be3c.js" defer></script>
+  </body>
+</html>

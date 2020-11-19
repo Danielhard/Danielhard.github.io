@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HTTP (无状态)协议 | Danielhard的前端笔记</title>
+    <meta name="description" content="step by step for a Full stack">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a02f6941.css" as="style"><link rel="preload" href="/assets/js/app.5c6037cb.js" as="script"><link rel="preload" href="/assets/js/2.082e12d9.js" as="script"><link rel="preload" href="/assets/js/6.768f9de4.js" as="script"><link rel="prefetch" href="/assets/js/10.9deb2a08.js"><link rel="prefetch" href="/assets/js/11.842648f5.js"><link rel="prefetch" href="/assets/js/12.d3d6d6a2.js"><link rel="prefetch" href="/assets/js/13.f678d7f6.js"><link rel="prefetch" href="/assets/js/14.fcbf7455.js"><link rel="prefetch" href="/assets/js/15.7cf0b9e8.js"><link rel="prefetch" href="/assets/js/16.d23d7877.js"><link rel="prefetch" href="/assets/js/17.71f474e7.js"><link rel="prefetch" href="/assets/js/18.b524aa71.js"><link rel="prefetch" href="/assets/js/19.448a8713.js"><link rel="prefetch" href="/assets/js/20.9d3518c1.js"><link rel="prefetch" href="/assets/js/21.1c2d03ec.js"><link rel="prefetch" href="/assets/js/22.5c5233a2.js"><link rel="prefetch" href="/assets/js/23.80f19ee8.js"><link rel="prefetch" href="/assets/js/24.b87cd00f.js"><link rel="prefetch" href="/assets/js/25.fbb4af51.js"><link rel="prefetch" href="/assets/js/26.7781b184.js"><link rel="prefetch" href="/assets/js/27.4065852b.js"><link rel="prefetch" href="/assets/js/28.2c772aeb.js"><link rel="prefetch" href="/assets/js/29.aeb8adbd.js"><link rel="prefetch" href="/assets/js/3.4f8d9a06.js"><link rel="prefetch" href="/assets/js/30.f4a63fbc.js"><link rel="prefetch" href="/assets/js/31.7401067b.js"><link rel="prefetch" href="/assets/js/32.dacd01a8.js"><link rel="prefetch" href="/assets/js/33.b4caf845.js"><link rel="prefetch" href="/assets/js/34.1fecdd8f.js"><link rel="prefetch" href="/assets/js/35.3256e4f8.js"><link rel="prefetch" href="/assets/js/36.b6a81b1a.js"><link rel="prefetch" href="/assets/js/37.e8212bcc.js"><link rel="prefetch" href="/assets/js/38.13adce45.js"><link rel="prefetch" href="/assets/js/39.090a1cfa.js"><link rel="prefetch" href="/assets/js/4.167f4d3b.js"><link rel="prefetch" href="/assets/js/40.13501eeb.js"><link rel="prefetch" href="/assets/js/41.c66148b8.js"><link rel="prefetch" href="/assets/js/42.45d8454b.js"><link rel="prefetch" href="/assets/js/43.f4ce8f7e.js"><link rel="prefetch" href="/assets/js/44.c14e2024.js"><link rel="prefetch" href="/assets/js/45.bc1af6e4.js"><link rel="prefetch" href="/assets/js/46.e605b212.js"><link rel="prefetch" href="/assets/js/47.3d074211.js"><link rel="prefetch" href="/assets/js/48.08e28418.js"><link rel="prefetch" href="/assets/js/49.4b565f02.js"><link rel="prefetch" href="/assets/js/5.db9199f1.js"><link rel="prefetch" href="/assets/js/50.255f038b.js"><link rel="prefetch" href="/assets/js/51.3edef65b.js"><link rel="prefetch" href="/assets/js/52.476f761c.js"><link rel="prefetch" href="/assets/js/53.8b55355b.js"><link rel="prefetch" href="/assets/js/54.8411ba2f.js"><link rel="prefetch" href="/assets/js/55.7764be3c.js"><link rel="prefetch" href="/assets/js/56.36aa97c2.js"><link rel="prefetch" href="/assets/js/57.6d39658a.js"><link rel="prefetch" href="/assets/js/7.20a18e96.js"><link rel="prefetch" href="/assets/js/8.f9f6b6a6.js"><link rel="prefetch" href="/assets/js/9.44d7f83b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a02f6941.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Danielhard的前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>QA</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>HTTP</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/FE/Http/从输入URL到页面响应.html" class="sidebar-link">从输入url到页面显示服务端传输内容的连接过程</a></li><li><a href="/FE/Http/HTTP相关.html" class="active sidebar-link">HTTP (无状态)协议</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#了解-tcp-ip协议栈" class="sidebar-link">了解 Tcp/IP协议栈</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#http在tcp-ip协议栈中的位置" class="sidebar-link">HTTP在TCP/IP协议栈中的位置</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#http的工作过程" class="sidebar-link">HTTP的工作过程</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#请求与响应" class="sidebar-link">请求与响应</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#请求方法" class="sidebar-link">请求方法</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#http状态码" class="sidebar-link">HTTP状态码</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#常用的请求报头" class="sidebar-link">常用的请求报头</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#常用的实体报头" class="sidebar-link">常用的实体报头</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#cookie的使用" class="sidebar-link">Cookie的使用</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#session的使用" class="sidebar-link">Session的使用</a></li><li class="sidebar-sub-header"><a href="/FE/Http/HTTP相关.html#了解两种缓存策略" class="sidebar-link">了解两种缓存策略</a></li></ul></li><li><a href="/FE/Http/http_1.html" class="sidebar-link">HTTP 1.x</a></li><li><a href="/FE/Http/http_2.html" class="sidebar-link">HTTP 2/3 &amp; HTTPS</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MVVM相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端工程化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>源码解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>php</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="http-无状态-协议"><a href="#http-无状态-协议" aria-hidden="true" class="header-anchor">#</a> HTTP (无状态)协议</h1> <p>请求模型 -&gt; client - server   请求 - 响应
+linux 下的防火墙iptables(功能内核决定)
+SELinux 软件防火墙</p> <blockquote><p>当我们输入网址后发生了什么</p></blockquote> <h3 id="浏览器行为与http协议"><a href="#浏览器行为与http协议" aria-hidden="true" class="header-anchor">#</a> 浏览器行为与HTTP协议</h3> <pre><code>处理流程:
+
+1.输入网址并回车
+2.解析域名，建立TCP连接
+3.浏览器发送HTTP请求 
+4.服务器处理请求
+5.服务器返回HTML响应
+6.浏览器接收HTTP请求，断开TCP连接，处理HTMl页面
+7.继续请求其他资源
+</code></pre> <blockquote><p>HTTP协议详解</p></blockquote> <ul><li>HTTP是超文本传输协议，从www浏览器传输到本地浏览器的一种传输协议，网站是基于HTTP协议的，例如网站的图片，css,js等 都是基于HTTP协议传输的</li> <li>HTTP协议是由客户机到服务器的请求和从服务器到客户机的响应进行约束和规范</li></ul> <h2 id="了解-tcp-ip协议栈"><a href="#了解-tcp-ip协议栈" aria-hidden="true" class="header-anchor">#</a> 了解 Tcp/IP协议栈</h2> <p>1.应用层</p> <p>为用户提供所需要的各种服务，例如:HTTP,FTP,DNS,SMTP等</p> <p>2.传输层</p> <p>1)为应用层实体提供端到端的功能，保证数据包的顺序传送给及数据的完整性</p> <p>2）该层定义了两个主要的协议：传输控制协议(TCP)和用户数据报协议(UDP)</p> <p>3.网络层</p> <p>1）主要解决主机到主机的通讯问题，IP协议是网际互联网最重要的协议</p> <p>4.网络接口层 （数据链路层，物理层）</p> <p>负责监视数据在主机和网络之间的切换</p> <p><img src="img/2.jpg" alt=""></p> <h2 id="http在tcp-ip协议栈中的位置"><a href="#http在tcp-ip协议栈中的位置" aria-hidden="true" class="header-anchor">#</a> HTTP在TCP/IP协议栈中的位置</h2> <p>（HTTPS)加密是嵌入式的，防止越界，可随时使用</p> <p>1）目前普遍应用版本HTTP1.1
+2) 正在逐步向HTTP 2迁移
+3) HTTP默认端口号为80
+4) HTTPS默认端口号433</p> <p><img src="img/1.jpg" alt=""></p> <h2 id="http的工作过程"><a href="#http的工作过程" aria-hidden="true" class="header-anchor">#</a> HTTP的工作过程</h2> <p>一次HTTP操作成为一个事务，工作过程分四步：</p> <p>1）首先客户机与服务器需要建立连接。只要单击某个超级链接，HTTP的工作开始。</p> <p>2）建立连接之后，客户机发送一个请求给服务器，请求方式的格式为：统一资源标识符(URL)，协议版本号，后边是MIME信息包括请求标识符，客户机信息和可能的内容</p> <p>3）服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号，一个成功或者错误的代码，后边是MIME信息包括服务器信息，实体信息和可能的内容。</p> <p>4）客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上，然后客户机与服务器断开连接</p> <p>如果以上某一步出错，产生的错误信息将返回客户端，有显示屏的输出，对于用户来说，这些过程是由HTTP自己完成的，用户只要用鼠标点击，等待信息显示就可以了。</p> <h2 id="请求与响应"><a href="#请求与响应" aria-hidden="true" class="header-anchor">#</a> 请求与响应</h2> <ul><li>HTTP请求组成： 请求行，消息报头，请求正文</li> <li>HTTP响应组成： 状态行，消息报头，响应正文</li> <li>请求行组成：以一个方法符号开头，后边跟着请求的URL和协议</li> <li>状态行组成：服务器HTTP协议的版本，服务器发回的响应状态码代码的文本描述</li></ul> <h2 id="请求方法"><a href="#请求方法" aria-hidden="true" class="header-anchor">#</a> 请求方法</h2> <ul><li>GET：请求获取Request-URL所标识的资源</li> <li>POST：在Request-URL所标识的资源后附加新的数据</li> <li>HEAD：请求获取的Request-URL所标识的资源的响应消息报头</li> <li>PUT： 请求服务器存储的一个资源，并用Request-URL作为其标识</li> <li>DELETE：请求服务器删除Request-URL所标识的资源</li> <li>TRACE：请求服务器回送收到的请求消息，主要用于测试或诊断</li> <li>CONNECT：HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</li> <li>OPTIONS：请求查询服务器的性能，或者查询与资源相关的选项和需求。</li></ul> <h2 id="http状态码"><a href="#http状态码" aria-hidden="true" class="header-anchor">#</a> HTTP状态码</h2> <p>状态码有三位数字组成，第一位定义响应类别，且有五种</p> <ul><li>1XX  指示信息，表示预请求已经接收继续处理</li> <li>2XX  成功，表示请求已经成功被接收，理解。接收</li> <li>3XX  重定向 要完成请求必须进行更一步操作</li> <li>4XX  客户端错误，请求有语法错误或请求无法实现</li> <li>5XX  服务器端错误，服务器未能实现合法请求</li></ul> <h2 id="常用的请求报头"><a href="#常用的请求报头" aria-hidden="true" class="header-anchor">#</a> 常用的请求报头</h2> <ul><li>Accept请求报头域用于指定客户端接受哪些类型的信息。eg:Accept：imgage/gif,Accept:text/htmlAccept-Charset
+请求报头域用于指定客户端接受的字符集。Accept-Encoding：Accept-Encoding请求报头域类似于Accept，但是它是用于指定可接受的内容编码</li> <li>Accept-Language请求报头域类似于Accept。但是它是用于指定一种自然语言。</li> <li>Authorination请求报头域主要用于证明客户端有权查看某个资源。当浏览器访问一个页面时，如果收到服务器的响应代码为401（未授权），可以发送一个包含Authorization请求报头域的请求，要求服务器对其进行验证。</li> <li>Host请求报头域主要于指定被请求资源的Internet主机和端口号，它通常从HTTP URL中提取出来的，发送请求时，该报头域是必需的。</li> <li>User-Agent请求报头域允许客户端将它的操作系统，浏览器和其他属性告诉服务器。</li></ul> <h2 id="常用的实体报头"><a href="#常用的实体报头" aria-hidden="true" class="header-anchor">#</a> 常用的实体报头</h2> <ul><li>Content-Encoding实体报头域被用作媒体类型的修饰符，值指示已经被应用到实体正文的附加内容的编码，因而要获得Content-Type报头域中所引用的媒体类型，必须采用相应的解码机制。</li> <li>Content-Language实体报头域描述了资源所用的自然语言</li> <li>Content-Length：实体报头域用于指明实体正文的长度，以字节方式存储的十进制数字表示</li> <li>Content-Type实体报头域用于指明发送给接受者的实体正文的媒体类型。</li> <li>Last-Modifed实体报头域用于指示资源的最后修改日期和时间</li> <li>Expires实体报头域给出的响应过期的日期和时间</li></ul> <blockquote><p>Cookie与Session</p></blockquote> <ul><li>Cookies是保存在客户端的小段文本，随客户端点每一个请求发送该url下的所有cookies到服务器端</li> <li>Session则保存在服务器端，通过唯一的值sessionID来区别每一个用户。SessionID随每个连接请求发送到服务器，服务器根据sessionID来识别客户端，再通过session的key获取session值.</li></ul> <h2 id="cookie的使用"><a href="#cookie的使用" aria-hidden="true" class="header-anchor">#</a> Cookie的使用</h2> <pre><code>解决问题: 为了解决http协议无状态的弊端，为了让客户端和服务端建立长久联系而出现的
+</code></pre> <ul><li><p>与Cookie相关的HTTP拓展头</p></li> <li><p>1）Cookie：客户端将服务器设置的额Cookie返回到服务器；
+2）Set-Cookie:服务器向客户端设置Cookie;</p></li> <li><p>服务器在响应消息中用Set-Cookie头将Cookie的内容回送给客户端，客户端在新的请求中将相同的内容携带在Cookie头中发送给服务器，从而实现会话的保持。</p></li></ul> <h2 id="session的使用"><a href="#session的使用" aria-hidden="true" class="header-anchor">#</a> Session的使用</h2> <ul><li>使用Cookie来实现</li> <li>使用URL回显来实现</li></ul> <blockquote><p>HTTP缓存机制</p></blockquote> <ul><li>缓存会根据请求保存输出内容的副本，例如html页面，图片，文件，当下一个请求来到的时候：如果是相同的URL，缓存直接使用副本响应访问请求，而不是向原服务器再次发送请求。</li> <li>缓存的优点：
+减少相应延迟。减少网络带宽消耗。</li></ul> <h2 id="了解两种缓存策略"><a href="#了解两种缓存策略" aria-hidden="true" class="header-anchor">#</a> 了解两种缓存策略</h2> <p>post 请求的东西不能缓存</p> <ul><li>强制缓存与对比缓存
+<ul><li>强制缓存，服务器通知浏览器一个缓存时间，在缓存时间内，下次请求，直接用缓存，不在时间内，执行比较缓存策略</li> <li>比教缓存，将缓存信息中的Etag和Last-Modified通过请求发送给服务器，有服务器校验，返回304状态码时，浏览器将直接使用缓存</li> <li>Etag/if-None-Match策略</li> <li>Last-Modified/if-Modified-Since策略</li></ul></li></ul> <blockquote><p>密码学入门</p></blockquote> <ul><li>密码学的处理对象是数字和字符串</li> <li>散列是一种数据一旦转换为其他形式将无法恢复的加密技术</li> <li>加密(加密密钥为公钥，解密密钥为私钥)
+<ul><li>对称加密(AES,DES,3DES)</li> <li>非对称加密(RSA)</li></ul></li> <li>密钥交换算法
+<ul><li><p>Diffie-Hellman算法是一种著名的密钥协商算法，这种算法可以使得信息交换的双方通过公开的非安全的网络协商生成安全的共享密钥。</p> <ul><li>（1）Alice与Bob确认两个大素数n和g,这两个数不用保密</li> <li>(2) Alice选择另一个大随机数x,并计算A如下:A = gx mod n</li> <li>(3) Alice将A发送给Bob</li> <li>(4) Bob选择另一个大随机数y,并计算B如下：B = gy mod n</li> <li>(5) Bob将B发送给Alice</li> <li>(6) 计算秘密密钥K1如下：K1 = Bx mod n</li> <li>(7)计算秘密密钥K2如下：k2 = Ay mod n</li> <li>K1 = K2 ,因此Alice和Bob可以用其进行加解密</li></ul></li></ul></li></ul> <blockquote><p>HTTPS协议分析</p></blockquote> <h3 id="ssl-tls协议"><a href="#ssl-tls协议" aria-hidden="true" class="header-anchor">#</a> SSL/TLS协议</h3> <ul><li>传输层安全性协议(Transport Layer Security - TLS)，及其前身安全套接层(Secure Sockets Layer - SSL)是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。</li> <li>HTTPS协议的安全性由SSL协议实现，当前使用的TLS协议1.2版本包含了四个核心子协议：握手协议、密钥配置切换协议、 应用数据协议及报警协议
+1 TLS适用于对称密钥
+2 对称密钥可以通过安全密钥交换算法共享
+3 如果请求被截获，密钥交换可能会被欺骗
+4 使用数字签名进行身份认证
+5 证书颁发机构和信任链</li> <li>HTTPS协议、SSL协议、TLS协议、握手协议的关系
+1 HTTPS 是Hypertext Transfer Protocol over Secure Socket Layer的缩写，即HTTP over SSL,可理解为基于SSL的HTTP协议。HTTPS协议安全是由SSL协议实现的
+2 SSL协议是一种记录协议，拓展性良好，可以很方便的添加子协议
+3 握手协议是SSL协议的一个子协议
+4 TLS协议是SSL协议的后续版本，本文中涉及的SSL协议默认是TLS协议1.2版本</li></ul> <h3 id="证书签发机构-ca"><a href="#证书签发机构-ca" aria-hidden="true" class="header-anchor">#</a> 证书签发机构(CA)</h3> <ul><li>通过CA发放的证书完成密钥的交换。实际上是利用非对称性加密算法完成数据加密密钥的安全交换。然后再利用数据加密密钥完成数据的安全交换</li> <li>数字证书:数字证书是互联网通信中标识对方身份信息的数字文件，由CA签发</li> <li>CA：CA（certification authority）是数字证书的签发机构，作为权威机构，其审核申请者身份后签发数字证书，这样我们只需要校验数组证书即可确定对方的真实身份</li> <li>CA的工作流程:
+<ol><li>服务器example.com将从CA请求TLS证书，例如Digicert.</li> <li>Digicert将为example.com创建证书，证书将包含必要的数据，例如服务器的名称，服务器的公钥等。</li> <li>Digicert将创建数据(证书)的哈希值，并使用自己的私钥对其进行加密。</li> <li>浏览器和操作系统自带Digicert等权威机构的公钥。</li> <li>当浏览器收到签名证书时，它将使用公钥从签名生成哈希值。它还将使用证书中指定的散列算法生成数据(证书)的散列，如果两个哈希值匹配。则签名验证成功并且证书是可信的。</li> <li>现在浏览器可以使用证书中指定的example.com的公钥继续进行身份验证过程</li> <li>在这里，我们可以将Digicer称为Root CA</li></ol></li></ul> <h3 id="浏览器如何验证服务器证书的有效性"><a href="#浏览器如何验证服务器证书的有效性" aria-hidden="true" class="header-anchor">#</a> 浏览器如何验证服务器证书的有效性</h3> <pre><code>+ 证书颁发机构是为服务器创建并签署证书，很少有组织从事这项工作，即Digicert,Geotrust,Comodo等。如果他们正在为所有服务器签署证书，则必须为所有签名使用相同的私钥，
+  如果它被盗，那么所有的信任都会丢失，为了解决这个问题并增加更多的平均信息量，引入了中间CA(intermediate CA)的概念。
++ 服务器使用中级证书颁发机构的签名，因此，在于浏览器通信时，服务器将共享两个证书：
+  1. 包含服务器的公钥，即实际的服务器证书；
+  2. 由Root CA 颁发的intermediate CA证书。
++ 在签名验证期间，浏览器首先使用已经存储在浏览器中的Root CA 的公钥来验证中间证书的数字签名。如果成功，浏览器现在可以信任中间证书及其公钥，
+  现在使用此公钥，浏览器将验证原始服务器证书的签名，该组织可以注册为intermediate CA，以便为其域签署证书
+</code></pre> <blockquote><p>HTTP2协议分析</p></blockquote> <h3 id="tls握手的步骤"><a href="#tls握手的步骤" aria-hidden="true" class="header-anchor">#</a> TLS握手的步骤</h3> <pre><code> 1. ClientHello: 客户端发送所支持的SSL/最高协议版本号和所支持的加密算法集合及压缩方法集合等信息给服务器端
+ 2. ServerHello: 服务器端收到客户端信息后，选定双方都能够支持的SSL/TLS协议版本和加密算法及压缩算法，返回给客户端。
+ 3. SendCertificate:(可选) 服务器端发送服务端证书给客户端
+ 4. RequestCertificate(可选): 如果选择双向验证，服务器端向客户端请求客户端证书
+ 5. ServerHelloDone:服务器端通知客户端初始协商结束。
+ 6. ResponseCertificate(可选): 如果选择双向验证。客户端向服务器端发送客户端证书
+ 7. ClientKeyExchange:客户端使用服务器端的公钥,对客户端公钥和密钥种子进行加 密，再发送给服务器端。
+ 8. CertificateVerify(可选): 如果选择双向验证，客户端用本地私钥生成数字签名，并发送给服务器端，让其通过收到的客户端公钥进行身份验证
+ 9. CreateSecretKey:通讯双方基于密钥种子等信息生成通讯密钥。
+ 10. ChangeCipherSpec:客户端通知服务器端已将通讯方式切换到加密模式。
+ 11. Finished : 客户端做好加密通讯的准备
+ 12. ChangeCipherSpec:服务器端通知客户端已将通讯方式切换到加密模式。
+ 13. Finished:服务器做好加密通讯的准备。
+ 14. Encrypted/DecrytedData:双方使用客户端密钥，通过对称加密算法对通讯内容进行加密
+ 15. ClosedConnection:通讯结束后，任何一方发出断开SSL连接的消息
+</code></pre> <h3 id="http2"><a href="#http2" aria-hidden="true" class="header-anchor">#</a> HTTP2</h3> <pre><code> + HTTP/2没有改动HTTP的应用语义。HTTP方法、状态代码、URI和表头字段等核心概念一如往常
+ + HTTP/2修改了数据格式化(分帧)以及在客户端与服务器间传输的方式。这两点统帅全局，通过新的分帧层向我们的应用隐藏了所有复杂性
+ + 由于HTTP/2引入了一个新的二进制分帧层，该层无法与之前的HTTP/1.x服务器和客户端向后兼容，因此协议的主协议提升到HTTP/2.
+ + HTTP2的特别：
+   1. 使用二进制格式传输、更高效、更紧凑。
+   2. 对报头压缩，降低开销。
+   3. 多路复用，一个网络连接实现并行请求。
+   4. 服务器主动推送，减少请求的延迟。
+   5. 默认使用加密。
+</code></pre> <h3 id="http2-二进制分帧层"><a href="#http2-二进制分帧层" aria-hidden="true" class="header-anchor">#</a> HTTP2:二进制分帧层</h3> <pre><code>  + HTTP/2所有性能增强的核心在于新的二进制分帧层，它定义了如何封装HTTP消息并在客户端与服务器之间传输。
+  + 这里所谓的“层”指的是位于套接字接口与应用可见的高级HTTP API之间一个经过优化的新编码机制。
+  + HTTP/1.x协议以换行符作为纯文本的分隔符，而HTTP/2将所有传输的信息分割为更小的消息和帧，并采用二进制格式对他们编码
+  + 客户端和服务器会替我们完成必要的分帧工作. 
+</code></pre> <h3 id="http-多路复用"><a href="#http-多路复用" aria-hidden="true" class="header-anchor">#</a> HTTP:多路复用</h3> <pre><code>  + 在HTTP/1.x中，如果客户端要想发起多个并行请求以提升性能，则必须使用多个TCP连接。这种模型也会导致队首阻塞，从而造成底层TCP连接的效率低下。
+  + 将HTTP消息分解为独立的帧，交错发送，然后在另一端重新组装是HTTP2最重要的一项增强，这个机制会在整个网络技术栈中引发一系列连锁反应，从而带来巨大的性能提升。
+    1. 并行交错地发送多个请求，请求之间互不影响。
+    2. 并行交错地发送多个响应，响应之间互不干扰。
+    3. 使用一个连接并行发送多个请求和响应。
+    4. 不必再为绕过HTTP/1.x限制而做很多工作
+    5. 消除不必要的延迟和提高现有网络容量的利用率，从而减少页面加载时间。
+</code></pre> <h3 id="http2-服务器推送"><a href="#http2-服务器推送" aria-hidden="true" class="header-anchor">#</a> HTTP2:服务器推送</h3> <pre><code>  + HTTP/2新增的另一个强大的新功能是，服务器可以对一个客户端请求发送多个响应。换句话说，除了对最初请求的响应外，服务器还可以向客户端推送额外资源，而无需客户端明确地请求。
+  + HTTP/2打破了严格的请求-响应语义，支持一对多和服务器发起的推送流。
+  + 服务器已经知道客户端下一步要请求什么资源，这时候服务器推送即可派上用场。
+  + 推送资源可以进行以下处理：
+    1. 由客户端缓存
+    2. 在不同页面之间重用
+    3. 与其他资源一起复用
+    4. 由服务器设定优先级
+    5. 被客户端拒绝
+</code></pre> <p><img src="img/3.png" alt=""></p> <h3 id="http2的伪头字段"><a href="#http2的伪头字段" aria-hidden="true" class="header-anchor">#</a> HTTP2的伪头字段</h3> <pre><code>   + 伪头部字段是http2内置的几个特殊的以&quot;:&quot;开始的key,用于替代HTTP/1.x中请求行/响应行中的信息，比如请求方法，响应状态码等
+      + :method目标URL模式部分(请求)
+      + :scheme目标URL模式部分(请求)
+      + :authority目标URL认证部分(请求)
+      + :path目标URL的路径和查询部分(绝对路径产生式和一个跟着&quot;?&quot;字符的查询产生式)(请求)
+      + :status响应头中的HTTP状态码部分(响应)
+</code></pre> <blockquote><p>了解HTTP3</p></blockquote> <ul><li>运行在QUIC之上的HTTP协议被称为HTTP/3(HTTP-over-QUIC)</li> <li>QUIC协议(Quick UDP Interner Connection) 基于UDP,正是看中了UDP的速度与效率。同时QUIC也整合了TCP,TLS和HTTP/2的优点，并加以优化</li> <li>特点:
+<ul><li>减少了握手的延迟(1-RTT或0-RTT)</li> <li>多路复用,并且没有TCP的阻塞问题</li> <li>连接迁移，(主要是在客户端)当由wifi转移到4G时，连接不会被断开。</li></ul></li> <li>HTTP 3与HTTP1.1和HTTP 2没有直接的关系，也不是HTTP2的拓展。</li> <li>HTTP 3将会是一个全新的WEB协议</li> <li>HTTP 3目前处于制定和测试阶段</li></ul> <blockquote><p>队首阻塞问题</p></blockquote> <ul><li>HTTP/1.1 和 HTTP/2都存在队头阻塞问题(Head of line blocking)</li> <li>HTTP/1.1 的队头阻塞。一个TCP连接同时传输10个请求，其中第1，2，3个请求已被客户端接收，但第四个请求丢失，那么后边第5-10个请求都被阻塞，
+需要等第4个请求处理完毕才嫩被处理，这样就浪费了带宽资源。</li> <li>HTTP/2的多路复用虽然可以解决&quot;请求&quot;这个粒度的阻塞，但HTTP/2的基础TCP协议本身却也存在着队头阻塞的问题。</li> <li>由于HTTP/2必须使用HTTPS,而HTTPS使用的TLS协议也存在队头阻塞问题</li> <li>队头阻塞会导致HTTP/2在更容易丢包的弱网络环境下比HTTP/1.1更慢</li> <li>那QUIC解决队头阻塞问题的方法:
+<ol><li>QUIC的传输单元是Packet，加密单元也是Packet,整个加密、传输、解密都基于Packet,这样就能避免TLS的队头阻塞问题;</li> <li>QUIC基于UDP,UDP的数据包在接收端没有处理顺序，即使中间丢失一个包，也不会阻塞整条连接。其他的资源也会被正常处理</li></ol></li></ul> <blockquote><p>后台服务与HTTP</p></blockquote> <blockquote><p>反向代理与WEB服务</p></blockquote> <p>反向代理的用途</p> <ul><li>加密和SSL加速</li> <li>负载均衡</li> <li>缓存静态内容</li> <li>压缩</li> <li>减速上传</li> <li>安全</li> <li>外网发布</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/FE/Http/从输入URL到页面响应.html" class="prev">从输入url到页面显示服务端传输内容的连接过程</a></span> <span class="next"><a href="/FE/Http/http_1.html">HTTP 1.x</a>→
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c6037cb.js" defer></script><script src="/assets/js/2.082e12d9.js" defer></script><script src="/assets/js/6.768f9de4.js" defer></script>
+  </body>
+</html>

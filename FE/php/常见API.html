@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>有关php的基本操作及常见内置API | Danielhard的前端笔记</title>
+    <meta name="description" content="step by step for a Full stack">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a02f6941.css" as="style"><link rel="preload" href="/assets/js/app.5c6037cb.js" as="script"><link rel="preload" href="/assets/js/2.082e12d9.js" as="script"><link rel="preload" href="/assets/js/41.c66148b8.js" as="script"><link rel="prefetch" href="/assets/js/10.9deb2a08.js"><link rel="prefetch" href="/assets/js/11.842648f5.js"><link rel="prefetch" href="/assets/js/12.d3d6d6a2.js"><link rel="prefetch" href="/assets/js/13.f678d7f6.js"><link rel="prefetch" href="/assets/js/14.fcbf7455.js"><link rel="prefetch" href="/assets/js/15.7cf0b9e8.js"><link rel="prefetch" href="/assets/js/16.d23d7877.js"><link rel="prefetch" href="/assets/js/17.71f474e7.js"><link rel="prefetch" href="/assets/js/18.b524aa71.js"><link rel="prefetch" href="/assets/js/19.448a8713.js"><link rel="prefetch" href="/assets/js/20.9d3518c1.js"><link rel="prefetch" href="/assets/js/21.1c2d03ec.js"><link rel="prefetch" href="/assets/js/22.5c5233a2.js"><link rel="prefetch" href="/assets/js/23.80f19ee8.js"><link rel="prefetch" href="/assets/js/24.b87cd00f.js"><link rel="prefetch" href="/assets/js/25.fbb4af51.js"><link rel="prefetch" href="/assets/js/26.7781b184.js"><link rel="prefetch" href="/assets/js/27.4065852b.js"><link rel="prefetch" href="/assets/js/28.2c772aeb.js"><link rel="prefetch" href="/assets/js/29.aeb8adbd.js"><link rel="prefetch" href="/assets/js/3.4f8d9a06.js"><link rel="prefetch" href="/assets/js/30.f4a63fbc.js"><link rel="prefetch" href="/assets/js/31.7401067b.js"><link rel="prefetch" href="/assets/js/32.dacd01a8.js"><link rel="prefetch" href="/assets/js/33.b4caf845.js"><link rel="prefetch" href="/assets/js/34.1fecdd8f.js"><link rel="prefetch" href="/assets/js/35.3256e4f8.js"><link rel="prefetch" href="/assets/js/36.b6a81b1a.js"><link rel="prefetch" href="/assets/js/37.e8212bcc.js"><link rel="prefetch" href="/assets/js/38.13adce45.js"><link rel="prefetch" href="/assets/js/39.090a1cfa.js"><link rel="prefetch" href="/assets/js/4.167f4d3b.js"><link rel="prefetch" href="/assets/js/40.13501eeb.js"><link rel="prefetch" href="/assets/js/42.45d8454b.js"><link rel="prefetch" href="/assets/js/43.f4ce8f7e.js"><link rel="prefetch" href="/assets/js/44.c14e2024.js"><link rel="prefetch" href="/assets/js/45.bc1af6e4.js"><link rel="prefetch" href="/assets/js/46.e605b212.js"><link rel="prefetch" href="/assets/js/47.3d074211.js"><link rel="prefetch" href="/assets/js/48.08e28418.js"><link rel="prefetch" href="/assets/js/49.4b565f02.js"><link rel="prefetch" href="/assets/js/5.db9199f1.js"><link rel="prefetch" href="/assets/js/50.255f038b.js"><link rel="prefetch" href="/assets/js/51.3edef65b.js"><link rel="prefetch" href="/assets/js/52.476f761c.js"><link rel="prefetch" href="/assets/js/53.8b55355b.js"><link rel="prefetch" href="/assets/js/54.8411ba2f.js"><link rel="prefetch" href="/assets/js/55.7764be3c.js"><link rel="prefetch" href="/assets/js/56.36aa97c2.js"><link rel="prefetch" href="/assets/js/57.6d39658a.js"><link rel="prefetch" href="/assets/js/6.768f9de4.js"><link rel="prefetch" href="/assets/js/7.20a18e96.js"><link rel="prefetch" href="/assets/js/8.f9f6b6a6.js"><link rel="prefetch" href="/assets/js/9.44d7f83b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a02f6941.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Danielhard的前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>QA</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MVVM相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端工程化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>源码解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>php</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/FE/php/基础.html" class="sidebar-link">PHP基础</a></li><li><a href="/FE/php/常见API.html" class="active sidebar-link">有关php的基本操作及常见内置API</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/FE/php/常见API.html#_1-常见内置api" class="sidebar-link">1.常见内置API</a></li><li class="sidebar-sub-header"><a href="/FE/php/常见API.html#the-next" class="sidebar-link">The Next:</a></li></ul></li><li><a href="/FE/php/OOP.html" class="sidebar-link">PHP面向对象</a></li><li><a href="/FE/php/PDO.html" class="sidebar-link">PDO，PHP的数据对象， 拓展为PHP访问数据库定义了一个轻量级的一致接口。</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="有关php的基本操作及常见内置api"><a href="#有关php的基本操作及常见内置api" aria-hidden="true" class="header-anchor">#</a> 有关php的基本操作及常见内置API</h1> <h2 id="_1-常见内置api"><a href="#_1-常见内置api" aria-hidden="true" class="header-anchor">#</a> 1.常见内置API</h2> <ul><li><p>字符串函数</p> <ol><li>返回字符串长度 strlen()<div class="language- extra-class"><pre class="language-text"><code>&lt;?php
+  echo strlen(&quot;Hello world!&quot;); // 12
+?&gt;
+</code></pre></div></li> <li>神奇的API 可以统计单词数量  - -,<div class="language- extra-class"><pre class="language-text"><code>str_word_count(&quot;# arguments of String&quot;)   //参数为string字符串
+</code></pre></div></li> <li>反转字符串strrev()<div class="language- extra-class"><pre class="language-text"><code>strrev(&quot;hello&quot;)   //参数为string字符串 
+// 输出  olleh
+</code></pre></div></li> <li>strpos()  用于检索字符串制定字符或文本，如果找到就返回首个匹配字符位置。没有返回false<div class="language- extra-class"><pre class="language-text"><code>&lt;?php
+  echo strpos(&quot;Hello world!&quot;,&quot;world&quot;);
+?&gt;
+</code></pre></div></li> <li>替换 str_replace()<div class="language- extra-class"><pre class="language-text"><code>&lt;?php
+ echo str_replace(&quot;world&quot;, &quot;Kitty&quot;, &quot;Hello world!&quot;); // 输出 Hello Kitty!
+?&gt;
+</code></pre></div></li></ol></li> <li><p>数组内置 API</p> <ol><li>for、foreach循环输出数组元素<div class="language- extra-class"><pre class="language-text"><code>&lt;?php 
+  // for循环
+  for ($i = 0; $i &lt;= 100; $i++) {
+    echo &quot;$i &lt;br/&gt;&quot;;
+  } 
+
+  // foreach 只适用于数组
+  $name = array('zhangsan', 'lisi', 'wangwu');  // 创建数组
+  foreach ($name as $value) {
+    echo &quot;$value &lt;br/&gt;&quot;;
+  }
+?&gt;      
+</code></pre></div></li> <li>count() 获取数组元素的个数<div class="language- extra-class"><pre class="language-text"><code>   &lt;?php
+    $nameLength = array('zhangsan', 'lisi', 'wangwu');
+    echo count($nameLength); // 3
+   ?&gt; 
+</code></pre></div></li> <li>输出数组当前的元素的值，如果当前元素为空或者无值则返回FALSE<div class="language- extra-class"><pre class="language-text"><code>  &lt;?php
+    $name = array('zhangsan', 'lisi', 'wangwu');
+   
+    echo current($name); // 返回第一个元素zhangsan 
+   
+    echo end($name); // 返回最后一个元素wangwu
+   
+    echo next($name); // 返回指定元素的下一个元素
+   
+    echo prev($name); // 返回指定元素的上一个元素
+   
+    echo reset($name); // 把内部指针移动到数组的首个元素zhangsan
+   
+  ?&gt;
+</code></pre></div></li> <li>对当前数组进行排序<div class="language- extra-class"><pre class="language-text"><code>&lt;?php
+ $numbers = array(1, 2, 3, 3, 4, 5, 6, 2);
+
+ // 返回bool
+ sort($numbers);  //对数组进行升序成功则为true 失败则为false
+ rsort($numbers); //对数组进行降序成功则为true 失败则为false
+ array_reverse($array, $preserve); //对原数组按反序排序，返回排序后的数组(2, 6, 5, 4, 3, 3, 2, 1)
+?&gt; 
+</code></pre></div></li> <li>合并数组<div class="language- extra-class"><pre class="language-text"><code> &lt;?php
+    $arr = array(1, 2, 3, 3, 4, 5, 6, 2);
+    $arr1 = array(10, 20, 30);
+    array_merge($arr, $arr1 );
+ ?&gt;
+</code></pre></div></li> <li>压栈，出栈<div class="language- extra-class"><pre class="language-text"><code>&lt;?php
+    $name = 'wang';
+    $name1  = array('zhang', 'li');
+    array_push($name1, $name); // 3 返回新数组的长度
+    array_pop($name1); //li 返回被pop的值。栈为空，返回null
+    array_shift($name1); //删除第一个元素并返回；
+    array_unshift(array，val1，val2,...); //将参数按照顺序加入队列中
+?&gt;
+</code></pre></div></li> <li>统计数组中值为出现的次数<div class="language- extra-class"><pre class="language-text"><code>   &lt;?php
+     $val = array(1, 2, 3, 3, 4, 3, 3, 1, 1);
+     print_r(array_count_values($val));
+   ?&gt;
+</code></pre></div></li> <li>过滤数组的元素<div class="language- extra-class"><pre class="language-text"><code>  &lt;?php
+    function func ($var) {
+      return($var &amp; 1);
+    }
+    $val = array('a', 'b', 2, 3, 4);
+    print_r(array_filter($val, 'func')); // 3
+  ?&gt;
+</code></pre></div></li> <li>检查索引是否在数组中<div class="language- extra-class"><pre class="language-text"><code> &lt;?php
+   $people = array('name'=&gt;'renbo', 'age'=&gt;'28');
+   if (array_key_exists('name', $people)) {
+       echo 'name存在';
+    }
+ ?&gt;
+</code></pre></div></li> <li>检查数组中是否存在指定的值<div class="language- extra-class"><pre class="language-text"><code> &lt;?php
+  $val = array('zhangsan', 'lisi', 'wangwu');
+   if (in_array('zhangsan', $val)) {
+      echo '存在';
+    }
+ ?&gt;
+</code></pre></div></li> <li>返回当前元素的Key<div class="language- extra-class"><pre class="language-text"><code> &lt;?php
+    $people = array('name'=&gt;'renbo', 'age'=&gt;'28');
+    key($people); //name
+ ?&gt;
+</code></pre></div></li> <li>返回当前元素所有的key<div class="language- extra-class"><pre class="language-text"><code> &lt;?php
+    $people = array('name'=&gt;'renbo','age'=&gt;'28');
+    print_r(array_keys($people)); // name age  
+ ?&gt;
+</code></pre></div></li></ol></li> <li><p>时间内置函数</p> <div class="language- extra-class"><pre class="language-text"><code>   &lt;?php
+      date(format[,timestamp]);
+      mktime(hour,minute,second,month,day,year); //省略的参数将以本地日期和时间代替
+      getdate([timestamp]); 
+   ?&gt;
+</code></pre></div></li> <li><p>URL处理内置函数</p> <div class="language- extra-class"><pre class="language-text"><code>   &lt;?php
+      urlencode(str); 返回值字符串中所有的非字母和数字字符变成一个百分号(%) 和一个两位的十六进制数，空格被转换成+,-、_和.不做任何转换
+      urldecode(str); 
+   ?&gt;
+</code></pre></div></li></ul> <h2 id="the-next"><a href="#the-next" aria-hidden="true" class="header-anchor">#</a> The Next:</h2> <p><a href="https://github.com/Danielhard/step-by-step/blob/master/note/php/PDO.md" target="_blank" rel="noopener noreferrer">PHP PDO<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <hr> <p><a href="https://github.com/Danielhard/step-by-step/blob/master/note/php/index.md" target="_blank" rel="noopener noreferrer">返回主目录<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/FE/php/基础.html" class="prev">PHP基础</a></span> <span class="next"><a href="/FE/php/OOP.html">PHP面向对象</a>→
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c6037cb.js" defer></script><script src="/assets/js/2.082e12d9.js" defer></script><script src="/assets/js/41.c66148b8.js" defer></script>
+  </body>
+</html>

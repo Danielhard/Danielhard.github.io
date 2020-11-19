@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>细活 | Danielhard的前端笔记</title>
+    <meta name="description" content="step by step for a Full stack">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a02f6941.css" as="style"><link rel="preload" href="/assets/js/app.5c6037cb.js" as="script"><link rel="preload" href="/assets/js/2.082e12d9.js" as="script"><link rel="preload" href="/assets/js/54.8411ba2f.js" as="script"><link rel="prefetch" href="/assets/js/10.9deb2a08.js"><link rel="prefetch" href="/assets/js/11.842648f5.js"><link rel="prefetch" href="/assets/js/12.d3d6d6a2.js"><link rel="prefetch" href="/assets/js/13.f678d7f6.js"><link rel="prefetch" href="/assets/js/14.fcbf7455.js"><link rel="prefetch" href="/assets/js/15.7cf0b9e8.js"><link rel="prefetch" href="/assets/js/16.d23d7877.js"><link rel="prefetch" href="/assets/js/17.71f474e7.js"><link rel="prefetch" href="/assets/js/18.b524aa71.js"><link rel="prefetch" href="/assets/js/19.448a8713.js"><link rel="prefetch" href="/assets/js/20.9d3518c1.js"><link rel="prefetch" href="/assets/js/21.1c2d03ec.js"><link rel="prefetch" href="/assets/js/22.5c5233a2.js"><link rel="prefetch" href="/assets/js/23.80f19ee8.js"><link rel="prefetch" href="/assets/js/24.b87cd00f.js"><link rel="prefetch" href="/assets/js/25.fbb4af51.js"><link rel="prefetch" href="/assets/js/26.7781b184.js"><link rel="prefetch" href="/assets/js/27.4065852b.js"><link rel="prefetch" href="/assets/js/28.2c772aeb.js"><link rel="prefetch" href="/assets/js/29.aeb8adbd.js"><link rel="prefetch" href="/assets/js/3.4f8d9a06.js"><link rel="prefetch" href="/assets/js/30.f4a63fbc.js"><link rel="prefetch" href="/assets/js/31.7401067b.js"><link rel="prefetch" href="/assets/js/32.dacd01a8.js"><link rel="prefetch" href="/assets/js/33.b4caf845.js"><link rel="prefetch" href="/assets/js/34.1fecdd8f.js"><link rel="prefetch" href="/assets/js/35.3256e4f8.js"><link rel="prefetch" href="/assets/js/36.b6a81b1a.js"><link rel="prefetch" href="/assets/js/37.e8212bcc.js"><link rel="prefetch" href="/assets/js/38.13adce45.js"><link rel="prefetch" href="/assets/js/39.090a1cfa.js"><link rel="prefetch" href="/assets/js/4.167f4d3b.js"><link rel="prefetch" href="/assets/js/40.13501eeb.js"><link rel="prefetch" href="/assets/js/41.c66148b8.js"><link rel="prefetch" href="/assets/js/42.45d8454b.js"><link rel="prefetch" href="/assets/js/43.f4ce8f7e.js"><link rel="prefetch" href="/assets/js/44.c14e2024.js"><link rel="prefetch" href="/assets/js/45.bc1af6e4.js"><link rel="prefetch" href="/assets/js/46.e605b212.js"><link rel="prefetch" href="/assets/js/47.3d074211.js"><link rel="prefetch" href="/assets/js/48.08e28418.js"><link rel="prefetch" href="/assets/js/49.4b565f02.js"><link rel="prefetch" href="/assets/js/5.db9199f1.js"><link rel="prefetch" href="/assets/js/50.255f038b.js"><link rel="prefetch" href="/assets/js/51.3edef65b.js"><link rel="prefetch" href="/assets/js/52.476f761c.js"><link rel="prefetch" href="/assets/js/53.8b55355b.js"><link rel="prefetch" href="/assets/js/55.7764be3c.js"><link rel="prefetch" href="/assets/js/56.36aa97c2.js"><link rel="prefetch" href="/assets/js/57.6d39658a.js"><link rel="prefetch" href="/assets/js/6.768f9de4.js"><link rel="prefetch" href="/assets/js/7.20a18e96.js"><link rel="prefetch" href="/assets/js/8.f9f6b6a6.js"><link rel="prefetch" href="/assets/js/9.44d7f83b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a02f6941.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Danielhard的前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/FE/introduction.html" class="nav-link">FE</a></div><div class="nav-item"><a href="https://github.com/Danielhard" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>QA</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MVVM相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>前端工程化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/FE/webpack/webpack基础使用.html" class="sidebar-link">webpack 模块化打包工具 一切皆模块</a></li><li><a href="/FE/webpack/webpack构建及流程.html" class="sidebar-link">webpack</a></li><li><a href="/FE/webpack/webpack项目优化及构建.html" class="active sidebar-link">细活</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/FE/webpack/webpack项目优化及构建.html#提一嘴node" class="sidebar-link">提一嘴node</a></li><li class="sidebar-sub-header"><a href="/FE/webpack/webpack项目优化及构建.html#entry和output" class="sidebar-link">entry和output</a></li><li class="sidebar-sub-header"><a href="/FE/webpack/webpack项目优化及构建.html#loader" class="sidebar-link">Loader</a></li><li class="sidebar-sub-header"><a href="/FE/webpack/webpack项目优化及构建.html#plugins" class="sidebar-link">plugins</a></li><li class="sidebar-sub-header"><a href="/FE/webpack/webpack项目优化及构建.html#other" class="sidebar-link">other</a></li></ul></li><li><a href="/FE/webpack/webpack常见问题.html" class="sidebar-link">常见的问题</a></li><li><a href="/FE/webpack/原理.html" class="sidebar-link">webpack 基本构成模块及其内部原理</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>源码解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>php</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="细活"><a href="#细活" aria-hidden="true" class="header-anchor">#</a> 细活</h1> <h2 id="提一嘴node"><a href="#提一嘴node" aria-hidden="true" class="header-anchor">#</a> 提一嘴node</h2> <ul><li>process当前node环境的进程，包括env(返回一个包含用户环境信息的对象)和arg(Node.js 进程被启动时传入的命令行参数)</li> <li>path是指用于处理文件和目录的路径常用的是resolve和join可以通过解构引入path获得</li></ul> <p>1）path.join() 方法会将所有给定的 path 片段连接到一起（使用平台特定的分隔符作为定界符），然后规范化生成的路径。
+<code>path.join('/目录1', '目录2', '目录3/目录4', '目录5', '..'); // 返回: '/目录1/目录2/目录3/目录4' path.join(__dirname,'./XXX') 当前目录加相对路径</code></p> <p>2）path.resolve() 方法会将路径或路径片段的序列解析为绝对路径。给定的路径序列会从右到左进行处理，后面的每个 path 会被追加到前面，直到构造出绝对路径。 例如，给定的路径片段序列：/目录1、 /目录2、 目录3，调用 path.resolve('/目录1', '/目录2', '目录3') 会返回 /目录2/目录3，因为 '目录3' 不是绝对路径，但 '/目录2' + '/' + '目录3' 是。
+如果在处理完所有给定的 path 片段之后还未生成绝对路径，则会使用当前工作目录。生成的路径会被规范化，并且尾部的斜杠会被删除（除非路径被解析为根目录）。零长度的 path 片段会被忽略。如果没有传入 path 片段，则 path.resolve() 会返回当前工作目录的绝对路径。</p> <div class="language- extra-class"><pre class="language-text"><code>     path.resolve('/目录1/目录2', './目录3');
+  // 返回: '/目录1/目录2/目录3'
+  
+  path.resolve('/目录1/目录2', '/目录3/目录4/');
+  // 返回: '/目录3/目录4'
+  
+  path.resolve('目录1', '目录2/目录3/', '../目录4/文件.gif');
+  // 如果当前工作目录是 /目录A/目录B，
+  // 则返回 '/目录A/目录B/目录1/目录2/目录4/文件.gif'
+</code></pre></div><p>相当于一个cd的过程。</p> <h2 id="entry和output"><a href="#entry和output" aria-hidden="true" class="header-anchor">#</a> entry和output</h2> <blockquote><p>entry</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>   entry: {
+      home: './home.js',
+      about: './about.js',
+      contact: './contact.js'
+      // app: resolve('src/web/index.tsx')  
+   }
+</code></pre></div><blockquote><p>output</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>  output: {
+    filename: '[name].bundle[contenthash:5].js', // 单入口可用静态名称
+    chunkFilename:'', // 非入口(non-entry) chunk 文件的名称
+    path: join(__dirname, '../dist'), // output 目录对应一个绝对路径。
+  }
+   
+</code></pre></div><p>额外参数:
+1)publicPath:对于按需加载(on-demand-load)或加载外部资源(external resources)（如图片、文件等）来说，output.publicPath 是很重要的选项。如果指定了一个错误的值，则在加载这些资源时会收到 404 错误。此选项指定在浏览器中所引用的「此输出目录对应的公开 URL」。相对 URL(relative URL) 会被相对于 HTML 页面（或 </p><base> 标签）解析。相对于服务的 URL(Server-relative URL)，相对于协议的 URL(protocol-relative URL) 或绝对 URL(absolute URL) 也可是可能用到的，或者有时必须用到，例如：当将资源托管到 CDN 时。该选项的值是以 runtime(运行时) 或 loader(载入时) 所创建的每个 URL 为前缀。因此，在多数情况下，此选项的值都会以 / 结束。<p></p> <div class="language- extra-class"><pre class="language-text"><code>  const path = require('path');
+  module.exports = {
+    //...
+    output: {
+      path: path.resolve(__dirname, 'public/assets'),
+      publicPath: 'https://cdn.example.com/assets/'
+    }
+  };
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code> module.exports = {
+   output: {
+     publicPath: '/assets/',
+     chunkFilename: '[id].chunk.js'
+     // publicPath: 'https://cdn.example.com/assets/', // CDN（总是 HTTPS 协议）
+     // publicPath: '//cdn.example.com/assets/', // CDN（协议相同）
+     // publicPath: '/assets/', // 相对于服务(server-relative)
+     // publicPath: 'assets/', // 相对于 HTML 页面
+     // publicPath: '../assets/', // 相对于 HTML 页面
+     // publicPath: '', // 相对于 HTML 页面（目录相同）
+   }
+ };
+   // 对于一个 chunk 请求，看起来像这样 /assets/4.chunk.js
+</code></pre></div><p>2)chunkFilename需要在运行时根据 chunk 发送的请求去生成。因此，需要在 webpack runtime 输出 bundle 值时，将 chunk id 的值对应映射到占位符(如 [name] 和 [chunkhash])。这会增加文件大小，并且在任何 chunk 的占位符值修改后，都会使 bundle 失效</p> <h2 id="loader"><a href="#loader" aria-hidden="true" class="header-anchor">#</a> Loader</h2> <ul><li>MiniCssExtractPlugin.loader 配合mini-css-extract-plugin使用</li> <li>babel-loader<div class="language- extra-class"><pre class="language-text"><code>  module:{
+      rules:[ 
+            {
+              test: /\.(js|jsx|ts|tsx)(\?.*)?/,
+              include: [resolve('src')],
+              exclude: /node_modules/,
+              use: [{
+                  loader: 'babel-loader'
+              }]
+          },]
+  }
+</code></pre></div></li> <li>style-loader //JS脚本创建一个style标签 和 css-loader搭配 无法单独用 miniCssExtractLoader将html里的样式，抽取出来放到link标签引入,可在生产使用.开发使用style-loader</li> <li>css-loader // 识别JS中导入了css 和 style-loader搭配</li> <li>postcss-loader  // CSS 预处理器加前缀cssnano压缩，csshudini</li></ul> <h2 id="plugins"><a href="#plugins" aria-hidden="true" class="header-anchor">#</a> plugins</h2> <ul><li>当前环境下的webpack打包进度条  webpackSimpleProgressPlugin</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const webpackSimpleProgressPlugin = require('webpack-simple-progress-plugin')
+
+// plugins 
+
+plugins:[
+    new webpackSimpleProgressPlugin()
+]
+</code></pre></div><ul><li>mini-css-extract-plugin  (webpack4.0+)
+将 CSS 提取到单独的文件中，为每个包含 CSS 的 JS 文件创建一个 CSS 文件，并且支持 CSS 和 SourceMaps 的按需加载。 注意webpack 5.0beta dev环境中配置loader修改css会导致derServer挂掉，以后如修改再校正。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// loader 
+ module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+            {
+               loader: MiniCssExtractPlugin.loader,
+               options: {
+                 // 你可以在这里指定特定的 publicPath
+                 // 默认情况下使用 webpackOptions.output 中的 publicPath
+                 publicPath: '../',
+                 // 仅仅在 development 模式下开启 hmr
+                 hmr: process.env.NODE_ENV === 'development',
+                 // 如果 hmr 不工作, 开启强制选项
+                 reloadAll:true 强制开启
+                },
+            }, 'css-loader'],
+      },
+    ],
+  },
+
+// plugins 
+
+plugins:[
+    new MiniCssExtractPlugin()
+]
+</code></pre></div><blockquote><p>options</p></blockquote> <ol><li>publicPath : output 选项中的 publicPath自定义目标文件的公共路径</li> <li>esModule : 默认false  默认情况下 mini-css-extract-plugin 将会生成使用 CommonJS 模块语法的 JS 模块。 在某些情况下，使用 ES 模块是有益的，比如： module concatenation 和 tree shaking。</li> <li>hmr支持在开发中热重载实际的 CSS 文件。  reloadAll:true 强制开启</li> <li>生产模式压缩,使用类 optimize-css-assets-webpack-plugin 这样的插件。 设置 optimization.minimizer 选项会覆盖 webpack 默认提供的优化器UglyJSplugin，所以还需要提供一个 JS 的优化器：terser-webpack-plugin</li></ol> <div class="language- extra-class"><pre class="language-text"><code> const TerserJSPlugin = require('terser-webpack-plugin');
+ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+ 
+ module.exports = {
+   optimization: {
+     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({
+         assetNameRegExp: /\.css$/g,
+         cssProcessor: require('cssnano'),
+         cssProcessorPluginOptions: {
+           preset: [
+             'default',
+             {
+               discardComments: {
+                 removeAll: true,
+               },
+             },
+           ],
+         },
+         canPrint: true,
+     })],
+   },
+   plugins: [
+     new MiniCssExtractPlugin({
+       // 类似于 webpackOptions.output 中的选项
+       // 所有选项都是可选的
+       filename: '[name].css',
+       chunkFilename: '[id].css',
+     }),
+   ],
+   module: {
+     rules: [
+       {
+         test: /\.css$/,
+         use: [MiniCssExtractPlugin.loader, 'css-loader'],
+       },
+     ],
+   },
+ };
+</code></pre></div><ol start="5"><li>长期缓存
+使用 filename: &quot;[contenthash].css&quot; 启动长期缓存。根据需要添加 [name]。</li></ol> <pre><code>```
+   new MiniCssExtractPlugin({
+     filename: '[name].[contenthash].css',
+     chunkFilename: '[id].[contenthash].css',
+   }),
+```
+</code></pre> <ul><li><p>HtmlWebpackPlugin 生成一个HTML5文件，其中会使用script标签将所有Webpack捆绑包包括在内。</p> <div class="language- extra-class"><pre class="language-text"><code>   var HtmlWebpackPlugin = require('html-webpack-plugin');
+   var path = require('path');
+   
+   module.exports = {
+     entry: 'index.js',
+     output: {
+       path: path.resolve(__dirname, './dist'),
+       filename: 'index_bundle.js'
+     },
+     plugins: [new HtmlWebpackPlugin(
+         title: 'yidengdengxuetang',
+         filename: 'index.html',   // 生成的文件名称
+         template: resolve(__dirname, `./src/web/index-${_modeflag?'prod':'dev'}.html`) // 模板绝对路径,此处区分生产开发环境
+         inject: true,
+         minify: {
+           removeComments: true,
+           collapseWhitespace: true,
+           removeAttributeQuotes: true
+           // more options:
+           // https://github.com/kangax/html-minifier#options-quick-reference
+         },
+     )]
+   };
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>
+&lt;!--dist/index.html--&gt;
+  &lt;!DOCTYPE html&gt;
+   &lt;html&gt;
+     &lt;head&gt;
+       &lt;meta charset=&quot;UTF-8&quot;&gt;
+       &lt;title&gt;webpack App&lt;/title&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+       &lt;script src=&quot;index_bundle.js&quot;&gt;&lt;/script&gt;
+     &lt;/body&gt;
+   &lt;/html&gt;
+
+</code></pre></div><p>有多个webpack入口点，它们将全部包含 &lt; script &gt;在生成的HTML中。用MiniCssExtractPlugin提取的CSS包含&lt; link &gt;在&lt; head &gt;生成的HTML元素中的标记中</p> <ul><li><p>分析打包体积 webpack-bundle-analyzer</p> <div class="language- extra-class"><pre class="language-text"><code>   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin  
+    new BundleAnalyzerPlugin({
+       analyzerMode: 'production',
+       analyzerPort: 8888,
+       analyzerHost: '127.0.0.1',
+       openAnalyzer: true
+    })
+</code></pre></div></li></ul></li> <li><p>speed-measure-webpack-plugin 分析打包速度 webpack5暂时不兼容</p> <div class="language- extra-class"><pre class="language-text"><code>  const SpeedNeasurePlugin = require('speed-measure-webpack-plugin')
+  const smp = new SpeedNeasurePlugin()
+  module.exports = smp.wrap(config)
+</code></pre></div></li> <li><p>开启Gzip  compression-webpack-plugin</p> <div class="language- extra-class"><pre class="language-text"><code>  const CompressionWebpackPlugin = require('compression-webpack-plugin')
+  new CompressionWebpackPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: new RegExp(
+        '\\.(' +
+        config.build.productionGzipExtensions.join('|') +
+        ')$'
+      ),
+      threshold: 10240,
+      minRatio: 0.8
+  })
+</code></pre></div></li></ul> <h2 id="other"><a href="#other" aria-hidden="true" class="header-anchor">#</a> other</h2> <ul><li>开启缓存
+缓存生成的 webpack 模块和 chunk，来改善构建速度。cache 会在开发 模式被设置成 type: 'memory' 而且在 生产 模式 中被禁用。 cache: true 与 cache: { type: 'memory' } 配置作用一致。 传入 false 会禁用缓存:</li></ul> <div class="language- extra-class"><pre class="language-text"><code> cache: {
+        type: 'filesystem',
+        // cacheDirectory: path.resolve(__dirname, '.temp_cache')
+    }
+
+</code></pre></div><ul><li>externals  外部拓展，防止将某些 import 的包(package)打包到 bundle 中，而是在运行时(runtime)再去从外部获取这些扩展依赖(external dependencies)。将资源用CDN或本地引入</li></ul> <div class="language- extra-class"><pre class="language-text"><code>    externals: {
+         react: 'React', //提取react
+        'react-router-dom': 'ReactRouterDOM' // 提取react-route-dom
+    },
+</code></pre></div><ul><li>sourceMap 定位代码错误，使用后包体积会增大</li></ul> <div class="language- extra-class"><pre class="language-text"><code> devtool: 'eval-nosources-cheap-module-source-map', // - -本地打包生产环境检查源码错误使用，
+ devtool: 'cheap-module-source-map', // 正式生产环境使用
+</code></pre></div><ul><li><p>合并分环境配置文件</p> <div class="language- extra-class"><pre class="language-text"><code>  const { merge } = require('webpack-merge')
+
+   //  curConfig = {...}  dev prod
+   //  baseConfig = {...}
+   module.export = merge(curConfig,baseConfig)
+</code></pre></div></li> <li><p>devServer<br>
+开启webpack-dev-server服务</p> <div class="language- extra-class"><pre class="language-text"><code>   devServer: {
+      // contentBase: join(__dirname, 'dist'), // 告诉服务器内容的来源。仅在需要提供静态文件时才进行配置
+      // publicPath: '/',
+      historyApiFallback: true, // 使用HTML5 history API，你可能需要使用index.html响应404或者问题请求
+      compress: true, //  gzip compression
+      port: 3000
+  },
+</code></pre></div></li> <li><p>Resolve解析模块</p> <ol><li><p>alias 别名,创建 import 或 require 的别名</p> <div class="language- extra-class"><pre class="language-text"><code>     alias: {
+       '@assets': resolve('src/web/assets'),
+       '@components': resolve('src/web/components'),
+       '@models': resolve('src/web/models'),
+       '@routes': resolve('src/web/routes'),
+       '@pages': resolve('src/web/pages'),
+       '@utils': resolve('src/web/utils'),
+       '@tools': resolve('src/web/tools'),
+     },
+</code></pre></div></li> <li><p>extensions:尝试按顺序解析这些后缀名。</p></li></ol> <div class="language- extra-class"><pre class="language-text"><code>   extensions: ['.js', '.ts', '.jsx', '.tsx']
+</code></pre></div><ol start="3"><li>modules: webpack 解析模块时应该搜索的目录</li></ol> <pre><code> 使用绝对路径，将只在给定目录中搜索。
+</code></pre> <div class="language- extra-class"><pre class="language-text"><code>     modules: ['node_modules', resolve('src')],
+</code></pre></div><pre><code> 添加一个目录到模块搜索目录，此目录优先于 node_modules/ 搜索：
+</code></pre> <div class="language- extra-class"><pre class="language-text"><code>  const path = require('path');
+
+  module.exports = {
+    //...
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  };
+</code></pre></div><ul><li>优化(Optimization)</li></ul> <blockquote><p>minimizer 提供一个或多个定制过的 TerserPlugin 实例， 覆盖默认压缩工具(minimizer)。</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>   const TerserPlugin = require('terser-webpack-plugin');
+   module.exports = {
+     optimization: {
+       minimizer: [
+         new TerserPlugin({
+           cache: true, // 是否缓存
+           parallel: true, // 是否并行打包
+           sourceMap: true, // 如果在生产环境中使用 source-maps，必须设置为 true
+           terserOptions: {
+             // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+           }
+         }),
+       ],
+     }
+   };
+
+</code></pre></div><blockquote><p>splitChunks  影响按需块，因为更改初始块会影响HTML文件应包含的脚本标签以运行项目,此配置对象表示的默认行为SplitChunksPlugin。
+webpack将根据以下条件自动拆分块：
+可以共享新块，或者模块来自node_modules文件夹
+新的块将大于20kb（在min + gz之前）
+按需加载块时并行请求的最大数量将小于或等于30
+初始页面加载时并行请求的最大数量将小于或等于30
+当试图满足最后两个条件时，最好使用较大的块。</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>     module.exports = {
+       //...
+       optimization: {
+         splitChunks: {
+           chunks: 'all', //选择哪些块进行优化。当提供一个字符串，有效值为all，async和initial,，还可以通过函数来过滤所需的 chunks
+           minSize: 20000, // 表示抽取出来的文件在压缩前的最小大小，默认为 30000
+           minRemainingSize: 0, // 拆分后剩余的最小块大小超过限制来避免大小为零的模块
+           maxSize: 0, // 表示抽取出来的文件在压缩前的最大大小，默认为 0，表示不限制最大大小
+           minChunks: 1,  // 拆分前必须共享模块的最小块数
+           maxAsyncRequests: 30, // 按需加载时(异步)最大并行请求数
+           maxInitialRequests: 30, // 入口点的最大并行请求数,最大的初始化加载次数，默认为 3；
+           automaticNameDelimiter: '~',
+           name:true,//name：抽取出来文件的名字，默认为 true，表示自动生成文件名；
+           enforceSizeThreshold: 50000, // 生成块的最小大小（以字节为单位）
+           cacheGroups: { //  缓存组,继承/覆盖上面 splitChunks 中所有的参数值,除此之外还额外提供了三个配置，分别为：test, priority 和 reuseExistingChunk。
+             defaultVendors: {
+               test: /[\\/]node_modules[\\/]/,
+               priority: -10
+             },
+             default: {
+               minChunks: 2,
+               priority: -20,
+               reuseExistingChunk: true
+             },
+             common: {
+                 name: 'common',
+                 chunks: 'initial',
+                 priority: 2,
+                 minChunks: 2,
+             },
+           }
+         }
+       }
+      ;
+
+</code></pre></div><p>下面我们把所有 node_modules 的模块被不同的 chunk 引入超过 1 次的抽取为 common。</p> <div class="language- extra-class"><pre class="language-text"><code>cacheGroups: {
+  common: {
+    test: /[\\/]node_modules[\\/]/,
+    name: 'common',
+    chunks: 'initial',
+    priority: 2,
+    minChunks: 2,
+  },
+}
+</code></pre></div><p>或者干脆把所有模块被不同的 chunk 引入超过 1 次的抽取为 common。</p> <div class="language- extra-class"><pre class="language-text"><code>cacheGroups: {
+  common: {
+    name: 'common',
+    chunks: 'initial',
+    priority: 2,
+    minChunks: 2,
+  },
+}
+</code></pre></div><p>进一步抽取,比如我们想把一些基础的框架单独抽取如 react ，然后是业务的基础。</p> <div class="language- extra-class"><pre class="language-text"><code>cacheGroups: {
+  reactBase: {
+    name: 'reactBase',
+    test: (module) =&gt; {
+        return /react|redux|prop-types/.test(module.context);
+    },
+    chunks: 'initial',
+    priority: 10,
+  },
+  common: {
+    name: 'common',
+    chunks: 'initial',
+    priority: 2,
+    minChunks: 2,
+  },
+}
+</code></pre></div><p>提供了 test 和 chunks 来过滤筛选但是如果要实现更精细的控制，就会发现还是有点问题。  从 entry 入口里面定义一个 react 的基础库，核心代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>  const vendorPkg = [
+  'react',
+  'react-dom',
+  'redux',
+  'redux-thunk',
+  'react-redux',
+  'react-router-dom',
+  'react-router-redux',
+  'history',
+  'prop-types',
+  'react-loadable',
+];
+
+module.exports = {
+  entry: {
+    vendor: vendorPkg,
+    ...
+  }
+}
+</code></pre></div><p>其他页面无法共用这个 vendor</p> <p>通过 MiniCssExtractPlugin 生成的 CSS 文件也可以通过 SplitChunks 来进行抽取公有样式等。如下表示将所有 CSS 文件打包为一个（注意将权重设置为最高，不然可能其他的 cacheGroups 会提前打包一部分样式文件）：</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>    module.exports = {
+      optimization: {
+        splitChunks: {
+          cacheGroups: {
+            styles: {
+              name: 'styles',
+              test: /\.css$/,
+              chunks: 'all',
+              enforce: true,
+              priority: 20, 
+            }
+          }
+        }
+      }
+    }
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/FE/webpack/webpack构建及流程.html" class="prev">webpack</a></span> <span class="next"><a href="/FE/webpack/webpack常见问题.html">常见的问题</a>→
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c6037cb.js" defer></script><script src="/assets/js/2.082e12d9.js" defer></script><script src="/assets/js/54.8411ba2f.js" defer></script>
+  </body>
+</html>
